@@ -11,7 +11,7 @@ public class CodeShovelController {
     }
 
     @RequestMapping("/dig")
-    public Object dig(
+    public String dig(
             @RequestParam(value="cloneurl") String cloneurl,
             @RequestParam(value="filepath") String filepath,
             @RequestParam(value="methodname") String methodname,

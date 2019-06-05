@@ -1,5 +1,6 @@
 package server;
 
+import com.felixgrund.codeshovel.entities.Yresult;
 import com.felixgrund.codeshovel.execution.ShovelExecution;
 import com.felixgrund.codeshovel.services.RepositoryService;
 import com.felixgrund.codeshovel.services.impl.CachingRepositoryService;
@@ -26,7 +27,7 @@ import java.util.regex.Pattern;
 class Routes {
     private static final String cachePathString = "./cache";
 
-    static Object performDig(String cloneurl, String filepath, String methodname, String startline, String startCommitName) {
+    static String performDig(String cloneurl, String filepath, String methodname, String startline, String startCommitName) {
         int intStartLine = Integer.parseInt(startline);
         Matcher matcher = Pattern.compile("[A-Z0-9a-z]+\\.git$").matcher(cloneurl);
         if (!matcher.find()) {
@@ -93,7 +94,7 @@ class Routes {
         }
     }
 
-    private static Object runShovelExecution(
+    private static String runShovelExecution(
             String repositoryPathGit,
             String repositoryName,
             String startCommitName,
@@ -117,9 +118,9 @@ class Routes {
         startEnv.setFileName(Utl.getFileName(startEnv.getFilePath()));
         startEnv.setOutputFilePath(outFilePath);
 
-        ShovelExecution.runSingle(startEnv, startEnv.getFilePath(), true);
+        return ShovelExecution.runSingle(startEnv, startEnv.getFilePath(), true).toJson();
 
-        return readOutputFromDisk(outFilePath);
+        // return readOutputFromDisk(outFilePath);
     }
 
     private static Object readOutputFromDisk(String path) {

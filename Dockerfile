@@ -2,7 +2,7 @@ FROM openjdk:8-jre-alpine
 
 ENV GITHUB_TOKEN=passed-from-env-file
 ENV LANG=java
-ENV DISABLE_ALL_OUTPUTS=false
+ENV DISABLE_ALL_OUTPUTS=true
 ENV REPO_DIR=.
 
 EXPOSE 8080
