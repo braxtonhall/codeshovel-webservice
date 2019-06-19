@@ -18,12 +18,11 @@ public class CodeShovelController {
             @RequestParam(value="filePath") String filePath,
             @RequestParam(value="methodName") String methodName,
             @RequestParam(value="startLine") String startLine,
-            @RequestParam(value="sha", defaultValue="HEAD") String startcommit,
+            @RequestParam(value="sha", defaultValue="HEAD") String startCommit,
             @RequestParam(value="noCache", defaultValue="false") String noCache
     ) {
-        return Routes.getHistory(gitUrl, filePath, methodName, startLine, startcommit, noCache);
+        return Routes.getHistory(gitUrl, filePath, methodName, startLine, startCommit, noCache);
     }
-    // http://localhost:8080/getHistory?gitUrl=https://github.com/checkstyle/checkstyle.git&filePath=src/main/java/com/puppycrawl/tools/checkstyle/Checker.java&methodName=fireErrors&startLine=384&sha=119fd4fb33bef9f5c66fc950396669af842c21a3
 
     @RequestMapping("/listFiles")
     public Collection<String> listFiles(
@@ -43,9 +42,6 @@ public class CodeShovelController {
     ) {
         return Routes.listMethods(gitUrl, filePath, sha, noCache);
     }
-
-    // http://localhost:8080/listMethods?gitUrl=https://github.com/checkstyle/checkstyle.git&filePath=src/main/java/com/puppycrawl/tools/checkstyle/Checker.java&sha=119fd4fb33bef9f5c66fc950396669af842c21a3
-
 
     @ExceptionHandler({InternalError.class, IllegalArgumentException.class})
     public String handleInternalError(Exception e) {
