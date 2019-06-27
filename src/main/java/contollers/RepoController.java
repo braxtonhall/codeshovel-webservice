@@ -82,10 +82,16 @@ public class RepoController {
     public static void checkout(String repositoryPath, String sha) {
         try {
             Git git = Git.open(Paths.get(repositoryPath).toFile());
-            git.checkout().setName(sha.toLowerCase()).call();
+            git.fetch().setRemote("origin").call();
+            if (sha.equals("HEAD")) {
+                git.checkout().setName("master").call();
+            } else {
+                git.checkout().setName(sha).call();
+            }
         } catch (IOException ioe) {
             throw new InternalError("RepoController::checkout() - Was not able to open the repository that is on disk");
         } catch (Exception e) {
+            System.out.println(e.toString());
             throw new InternalError("RepoController::checkout() - Was not able to checkout " + sha);
         }
     }
@@ -110,6 +116,7 @@ public class RepoController {
                 }
             }
         }
+        // System.out.println("RepoController::getFiles() - Returning " + listOfFiles.size() + " files");
         return listOfFiles;
     }
 }

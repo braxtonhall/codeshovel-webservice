@@ -21,12 +21,14 @@ import java.util.Collection;
 public class ParseController {
     public static Collection<Object> getMethods(String path) {
         class Tuple {
-            public String method;
+            public String longName;
             public int startLine;
+            public String methodName;
 
-            Tuple(String method, int startLine) {
-                this.method = method;
+            Tuple(String longName, int startLine, String methodName) {
+                this.longName = longName;
                 this.startLine = startLine;
+                this.methodName = methodName;
             }
         }
 
@@ -39,7 +41,8 @@ public class ParseController {
                     super.visit(md, arg);
                     output.add(new Tuple(
                             buildName(md),
-                            md.getRange().isPresent() ? md.getRange().get().begin.line : 0
+                            md.getRange().isPresent() ? md.getRange().get().begin.line : 0,
+                            md.getName().toString()
                     ));
                 }
             }.visit(JavaParser.parse(Paths.get(path).toFile()), null);
@@ -52,6 +55,8 @@ public class ParseController {
 
     private static String buildName(MethodDeclaration md) {
         StringBuilder parameters = new StringBuilder();
+        StringBuilder parents = new StringBuilder();
+        
         for(Parameter parameter:md.getParameters()) {
             if(parameters.length() > 0) {
                 parameters.append(", ");
@@ -60,7 +65,6 @@ public class ParseController {
             parameters.append(" ");
             parameters.append(parameter.getName());
         }
-        StringBuilder parents = new StringBuilder();
 
         class NodeVisitor extends VoidVisitorAdapter<Object> {
             public void visit(Node n, Object arg) {

@@ -74,7 +74,7 @@ class Routes {
         boolean boolNoCache = Boolean.parseBoolean(noCache);
         String cacheRepositoryPath = RepoController.cloneRepository(url, boolNoCache);
         RepoController.checkout(cacheRepositoryPath, sha);
-        return RepoController.getFiles(cacheRepositoryPath, cacheRepositoryPath);
+        return RepoController.getFiles(cacheRepositoryPath, cacheRepositoryPath + "/");
     }
 
     static Collection<Object> listMethods(String url, String path, String sha, String noCache) {
