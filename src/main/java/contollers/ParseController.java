@@ -2,6 +2,7 @@ package contollers;
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.Modifier;
 import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
@@ -20,15 +21,28 @@ import java.util.Collection;
 
 public class ParseController {
     public static Collection<Object> getMethods(String path) {
-        class Tuple {
+        class MethodTransport {
             public String longName;
             public int startLine;
             public String methodName;
+            public boolean isStatic;
+            public boolean isAbstract;
+            public String visibility;
 
-            Tuple(String longName, int startLine, String methodName) {
+            MethodTransport(
+                    String longName,
+                    int startLine,
+                    String methodName,
+                    boolean isStatic,
+                    boolean isAbstract,
+                    String visibility
+            ) {
                 this.longName = longName;
                 this.startLine = startLine;
                 this.methodName = methodName;
+                this.isStatic = isStatic;
+                this.isAbstract = isAbstract;
+                this.visibility = visibility;
             }
         }
 
@@ -39,10 +53,13 @@ public class ParseController {
                 @Override
                 public void visit(MethodDeclaration md, Object arg) {
                     super.visit(md, arg);
-                    output.add(new Tuple(
+                    output.add(new MethodTransport(
                             buildName(md),
                             md.getRange().isPresent() ? md.getRange().get().begin.line : 0,
-                            md.getName().toString()
+                            md.getName().toString(),
+                            md.isStatic(),
+                            md.isAbstract(),
+                            Modifier.getAccessSpecifier(md.getModifiers()).asString()
                     ));
                 }
             }.visit(JavaParser.parse(Paths.get(path).toFile()), null);
