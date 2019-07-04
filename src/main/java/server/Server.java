@@ -6,7 +6,7 @@ import java.util.Collection;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-public class CodeShovelController {
+public class Server {
 
     @PostMapping("/clearCache")
     public String clearCache() {
@@ -17,7 +17,7 @@ public class CodeShovelController {
     public String dig(
             @RequestParam(value="gitUrl") String gitUrl,
             @RequestParam(value="filePath") String filePath,
-            @RequestParam(value="longName") String methodName,
+            @RequestParam(value="methodName") String methodName,
             @RequestParam(value="startLine") String startLine,
             @RequestParam(value="sha", defaultValue="HEAD") String startCommit,
             @RequestParam(value="noCache", defaultValue="false") String noCache

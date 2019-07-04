@@ -116,7 +116,6 @@ public class RepoController {
                 }
             }
         }
-        // System.out.println("RepoController::getFiles() - Returning " + listOfFiles.size() + " files");
         return listOfFiles;
     }
 }
