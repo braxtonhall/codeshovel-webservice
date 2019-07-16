@@ -1,7 +1,11 @@
 package server;
 
+import errors.ServerBusyException;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.Collection;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -44,9 +48,19 @@ public class Server {
         return Routes.listMethods(gitUrl, filePath, sha, noCache);
     }
 
-    @ExceptionHandler({InternalError.class, IllegalArgumentException.class})
-    public String handleInternalError(Exception e) {
-        return "ERROR: " + e.toString();
+    @ExceptionHandler({IllegalArgumentException.class})
+    public void handleIllegalArguments(HttpServletResponse response) throws IOException {
+        response.sendError(HttpStatus.BAD_REQUEST.value());
+    }
+
+    @ExceptionHandler({InternalError.class})
+    public void handleInternalError(HttpServletResponse response) throws IOException {
+        response.sendError(HttpStatus.INTERNAL_SERVER_ERROR.value());
+    }
+
+    @ExceptionHandler({ServerBusyException.class})
+    public void handleServerBusy(HttpServletResponse response) throws IOException {
+        response.sendError(HttpStatus.SERVICE_UNAVAILABLE.value());
     }
 
 }

@@ -1,5 +1,6 @@
 package contollers;
 
+import errors.ServerBusyException;
 import org.apache.commons.io.FileUtils;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
@@ -90,6 +91,12 @@ public class RepoController {
             }
         } catch (IOException ioe) {
             throw new InternalError("RepoController::checkout() - Was not able to open the repository that is on disk");
+        } catch (JGitInternalException jgie) {
+            if (jgie.toString().contains(": Cannot lock ")) {
+                throw new ServerBusyException("RepoController::checkout() - Was not able to open the repository that is on disk");
+            } else {
+                throw new InternalError("RepoController::checkout() - Was not able to checkout " + sha);
+            }
         } catch (Exception e) {
             System.out.println(e.toString());
             throw new InternalError("RepoController::checkout() - Was not able to checkout " + sha);
