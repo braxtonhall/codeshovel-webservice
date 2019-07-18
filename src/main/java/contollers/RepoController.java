@@ -93,7 +93,7 @@ public class RepoController {
             throw new InternalError("RepoController::checkout() - Was not able to open the repository that is on disk");
         } catch (JGitInternalException jgie) {
             if (jgie.toString().contains(": Cannot lock ")) {
-                throw new ServerBusyException("RepoController::checkout() - Was not able to open the repository that is on disk");
+                throw new ServerBusyException("RepoController::checkout() - Was not able to obtain lock");
             } else {
                 throw new InternalError("RepoController::checkout() - Was not able to checkout " + sha);
             }
