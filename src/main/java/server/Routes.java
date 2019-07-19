@@ -30,6 +30,13 @@ class Routes {
         String outFilePath = cacheRepositoryPath + "/cdshvl/fake.json";
         String repositoryName = cacheRepositoryPath.substring(cacheRepositoryPath.lastIndexOf("/") + 1);
 
+        if (filepath.startsWith("/")) {
+            filepath = filepath.substring(1);
+        }
+        if (filepath.startsWith("./")) {
+            filepath = filepath.substring(2);
+        }
+
         try {
             return runShovelExecution(pathToGitFolder, repositoryName,
                     startCommitName, filepath, methodName, outFilePath, intStartLine);
