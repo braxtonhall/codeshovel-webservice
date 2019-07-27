@@ -57,8 +57,18 @@ public class RepoController {
         // TODO this shouldn't be needed for public repos
 
         if (!noCache && cloneDirectoryFile.exists()) {
-            System.out.println("RepoController::cloneRepository() - Directory already existed. Not cloning again.");
-            return cacheRepositoryPath;
+            System.out.println("RepoController::cloneRepository() - Directory already existed. Beginning Fetch.");
+            try {
+                Git git = Git.open(cloneDirectoryFile);
+                git.fetch().setRemote("origin").call();
+                return cacheRepositoryPath;
+            } catch (Exception e) {
+                try {
+                    FileUtils.deleteDirectory(cloneDirectoryFile);
+                } catch (IOException ioe) {
+                    throw new InternalError("RepoController::cloneRepository() - Was not able to access files on disk");
+                }
+            }
         }
         for (int i = 0; i < 2; i++) {
             try {

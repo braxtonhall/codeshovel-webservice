@@ -1,8 +1,11 @@
 package server;
 
 import com.felixgrund.codeshovel.execution.ShovelExecution;
+import com.felixgrund.codeshovel.parser.Yfunction;
+import com.felixgrund.codeshovel.parser.Yparser;
 import com.felixgrund.codeshovel.services.RepositoryService;
 import com.felixgrund.codeshovel.services.impl.CachingRepositoryService;
+import com.felixgrund.codeshovel.util.ParserFactory;
 import com.felixgrund.codeshovel.util.Utl;
 import com.felixgrund.codeshovel.wrappers.Commit;
 import com.felixgrund.codeshovel.wrappers.StartEnvironment;
@@ -80,18 +83,19 @@ class Routes {
     static Collection<String> listFiles(String url, String sha, String noCache) {
         boolean boolNoCache = Boolean.parseBoolean(noCache);
         String cacheRepositoryPath = RepoController.cloneRepository(url, boolNoCache);
-        RepoController.checkout(cacheRepositoryPath, sha);
+        RepoController.checkout(cacheRepositoryPath, sha); // TODO remove
         return RepoController.getFiles(cacheRepositoryPath, cacheRepositoryPath + "/");
     }
 
     static Collection<Object> listMethods(String url, String path, String sha, String noCache) {
         boolean boolNoCache = Boolean.parseBoolean(noCache);
         String cacheRepositoryPath = RepoController.cloneRepository(url, boolNoCache);
-        RepoController.checkout(cacheRepositoryPath, sha);
         if (path.startsWith("/")) {
             path = path.substring(1);
         }
-        return ParseController.getMethods(cacheRepositoryPath + "/" + path);
+        String pathToGitFolder = cacheRepositoryPath + "/.git";
+        String repositoryName = cacheRepositoryPath.substring(cacheRepositoryPath.lastIndexOf("/") + 1);
+        return ParseController.getMethods(pathToGitFolder, repositoryName, sha, path);
     }
 
 }
