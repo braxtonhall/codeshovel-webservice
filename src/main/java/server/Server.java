@@ -17,6 +17,13 @@ public class Server {
         return Routes.performClear();
     }
 
+    @RequestMapping("/echo")
+    public String echo(
+            @RequestParam(value="msg", defaultValue="echo") String msg
+    ) {
+        return msg;
+    }
+
     @RequestMapping("/getHistory")
     public String dig(
             @RequestParam(value="gitUrl") String gitUrl,
