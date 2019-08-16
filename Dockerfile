@@ -15,7 +15,4 @@ COPY --from=MAVEN_TOOL_CHAIN /tmp/target/codeshovel-webservice-0.1.0.jar /app.wa
 
 RUN mkdir cache
 
-# For testing
-CMD ["/usr/bin/java", "-Xmx60m", "-jar", "/app.war"]
-# Correct
-#CMD ["/usr/bin/java", "-Xmx4096m", "-jar", "/app.war"]
+CMD ["/usr/bin/java", "-Xmx4096m", "-jar", "/app.war"]
