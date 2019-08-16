@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Collection;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://cs310.students.cs.ubc.ca:8000")
 @RestController
 public class Server {
 
