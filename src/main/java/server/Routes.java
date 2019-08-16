@@ -83,8 +83,9 @@ class Routes {
     static Collection<String> listFiles(String url, String sha, String noCache) {
         boolean boolNoCache = Boolean.parseBoolean(noCache);
         String cacheRepositoryPath = RepoController.cloneRepository(url, boolNoCache);
-        RepoController.checkout(cacheRepositoryPath, sha); // TODO remove
-        return RepoController.getFiles(cacheRepositoryPath, cacheRepositoryPath + "/");
+        String pathToGitFolder = cacheRepositoryPath + "/.git";
+        String repositoryName = cacheRepositoryPath.substring(cacheRepositoryPath.lastIndexOf("/") + 1);
+        return RepoController.getFiles(pathToGitFolder, repositoryName, sha);
     }
 
     static Collection<Object> listMethods(String url, String path, String sha, String noCache) {
