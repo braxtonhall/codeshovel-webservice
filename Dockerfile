@@ -15,6 +15,4 @@ COPY --from=MAVEN_TOOL_CHAIN /tmp/target/codeshovel-webservice-0.1.0.jar /app.wa
 
 RUN mkdir cache
 
-EXPOSE 8080
-
 CMD ["/usr/bin/java", "-jar", "/app.war"]

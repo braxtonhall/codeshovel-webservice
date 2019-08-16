@@ -6,7 +6,7 @@ services:
       context: https://${GITHUB_TOKEN}@github.com/braxtonhall/codeshovel-webservice.git
     container_name: backend
     ports:
-      - 11345:8080
+      - 443:8080
     restart: always
     environment:
       - GITHUB_TOKEN
@@ -15,5 +15,5 @@ services:
       context: https://${GITHUB_TOKEN}@github.com/braxtonhall/codeshovel-ui.git
     container_name: frontend
     ports:
-    - 8000:5000
+    - 80:5000
     restart: always
