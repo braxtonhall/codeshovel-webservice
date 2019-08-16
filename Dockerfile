@@ -12,8 +12,9 @@ ENV DISABLE_ALL_OUTPUTS=true
 ENV REPO_DIR=.
 
 COPY --from=MAVEN_TOOL_CHAIN /tmp/target/codeshovel-webservice-0.1.0.jar /app.war
-#
-#COPY target/codeshovel-webservice-0.1.0.jar /app.war
+
 RUN mkdir cache
-# run application with this command line
+
+EXPOSE 8080
+
 CMD ["/usr/bin/java", "-jar", "/app.war"]
