@@ -12,7 +12,7 @@ services:
       - GITHUB_TOKEN
   frontend:
     build:
-      context: https://${GITHUB_TOKEN}@github.com/braxtonhall/codeshovel-ui
+      context: https://${GITHUB_TOKEN}@github.com/braxtonhall/codeshovel-ui.git
     container_name: frontend
     ports:
     - 8000:5000
