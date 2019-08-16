@@ -70,4 +70,10 @@ public class Server {
         response.sendError(HttpStatus.SERVICE_UNAVAILABLE.value());
     }
 
+    @ExceptionHandler({OutOfMemoryError.class})
+    public void handleOutOfMemory(HttpServletResponse response) throws IOException {
+        response.sendError(HttpStatus.SERVICE_UNAVAILABLE.value());
+        System.exit(0);
+    }
+
 }
