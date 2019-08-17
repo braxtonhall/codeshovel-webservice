@@ -11,7 +11,7 @@ services:
     environment:
       - GITHUB_TOKEN
     volumes:
-      - "./requests.csv:./requests.csv"
+      - "${LOG_PATH}:/requests.csv"
   frontend:
     build:
       context: https://${GITHUB_TOKEN}@github.com/braxtonhall/codeshovel-ui.git
