@@ -65,14 +65,16 @@ public class ParseController {
                 @Override
                 public void visit(MethodDeclaration md, Object arg) {
                     super.visit(md, arg);
-                    output.add(new MethodTransport(
-                            buildName(md),
-                            md.getName().getRange().isPresent() ? md.getName().getRange().get().begin.line : 0,
-                            md.getName().toString(),
-                            md.isStatic(),
-                            md.isAbstract(),
-                            Modifier.getAccessSpecifier(md.getModifiers()).asString()
-                    ));
+                    if (md.getBody().isPresent()) {
+                        output.add(new MethodTransport(
+                                buildName(md),
+                                md.getName().getRange().isPresent() ? md.getName().getRange().get().begin.line : 0,
+                                md.getName().toString(),
+                                md.isStatic(),
+                                md.isAbstract(),
+                                Modifier.getAccessSpecifier(md.getModifiers()).asString()
+                        ));
+                    }
                 }
             }.visit(JavaParser.parse(startFileContent), null);
             return output;
