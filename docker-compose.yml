@@ -1,21 +1,27 @@
 version: "3.5"
 
 services:
-  server:
+  backend:
     build:
       context: https://${GITHUB_TOKEN}@github.com/braxtonhall/codeshovel-webservice.git
     container_name: backend
     ports:
-      - 443:8080
+      - ${CODESHOVEL_BACKEND_PORT}:8080
     restart: always
     environment:
       - GITHUB_TOKEN
     volumes:
-      - "${LOG_PATH}:/requests.csv"
+      - "${CODESHOVEL_LOG_PATH}:/requests.csv"
+      - "${CODESHOVEL_CACHE_PATH}:cache"
   frontend:
     build:
+      args:
+      - "SERVER_ADDRESS=${PUBLICHOSTNAME}:${CODESHOVEL_BACKEND_PORT}"
+      - "PUBLIC_ADDRESS=${PUBLICHOSTNAME}:${CODESHOVEL_FRONTEND_PORT}"
       context: https://${GITHUB_TOKEN}@github.com/braxtonhall/codeshovel-ui.git
     container_name: frontend
+    depends_on:
+      - backend
     ports:
-    - 80:5000
+    - ${CODESHOVEL_FRONTEND_PORT}:5000
     restart: always

@@ -13,6 +13,4 @@ ENV REPO_DIR=.
 
 COPY --from=MAVEN_TOOL_CHAIN /tmp/target/codeshovel-webservice-0.1.0.jar /app.war
 
-RUN mkdir cache
-
 CMD ["/usr/bin/java", "-Xmx4096m", "-jar", "/app.war"]
