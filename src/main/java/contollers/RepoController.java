@@ -4,6 +4,7 @@ import com.felixgrund.codeshovel.services.RepositoryService;
 import com.felixgrund.codeshovel.services.impl.CachingRepositoryService;
 import com.felixgrund.codeshovel.util.Utl;
 import com.felixgrund.codeshovel.wrappers.Commit;
+import errors.NotFoundException;
 import errors.ServerBusyException;
 import org.apache.commons.io.FileUtils;
 import org.eclipse.jgit.api.Git;
@@ -48,7 +49,7 @@ public class RepoController {
         }
     }
 
-    public static String cloneRepository(String cloneurl, boolean noCache) {
+    public static String cloneRepository(String cloneurl, boolean noCache, boolean noClone) {
         Matcher matcher = Pattern.compile("[A-Z0-9a-z]+\\.git$").matcher(cloneurl);
 
         if (!matcher.find()) {
@@ -60,9 +61,15 @@ public class RepoController {
                 .replace(".git", "");
         File cloneDirectoryFile = Paths.get(cacheRepositoryPath).toFile();
         cloneurl = cloneurl.replace("https://", "https://" + WebServiceEnv.GITHUB_TOKEN + "@");
-        // TODO this shouldn't be needed for public repos
+        boolean repoExists = cloneDirectoryFile.exists();
 
-        if (!noCache && cloneDirectoryFile.exists()) {
+        if (noClone && repoExists) {
+            return cacheRepositoryPath;
+        } else if (noClone) {
+            throw new NotFoundException("Repo is not already in cache");
+        }
+
+        if (!noCache && repoExists) {
             System.out.println("RepoController::cloneRepository() - Directory already existed. Beginning Fetch.");
             try {
                 Git git = Git.open(cloneDirectoryFile);
@@ -76,6 +83,7 @@ public class RepoController {
                 }
             }
         }
+
         for (int i = 0; i < 2; i++) {
             try {
                 Git.cloneRepository()

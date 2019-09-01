@@ -1,11 +1,8 @@
 package server;
 
 import com.felixgrund.codeshovel.execution.ShovelExecution;
-import com.felixgrund.codeshovel.parser.Yfunction;
-import com.felixgrund.codeshovel.parser.Yparser;
 import com.felixgrund.codeshovel.services.RepositoryService;
 import com.felixgrund.codeshovel.services.impl.CachingRepositoryService;
-import com.felixgrund.codeshovel.util.ParserFactory;
 import com.felixgrund.codeshovel.util.Utl;
 import com.felixgrund.codeshovel.wrappers.Commit;
 import com.felixgrund.codeshovel.wrappers.StartEnvironment;
@@ -23,11 +20,15 @@ class Routes {
                              String methodName,
                              String startLine,
                              String startCommitName,
-                             String noCache) {
+                             String noCache,
+                             String noClone) {
 
         int intStartLine = Integer.parseInt(startLine);
         boolean boolNoCache = Boolean.parseBoolean(noCache);
-        String cacheRepositoryPath = RepoController.cloneRepository(cloneUrl, boolNoCache);
+        boolean boolNoClone = Boolean.parseBoolean(noClone);
+        nand(boolNoCache, boolNoClone);
+
+        String cacheRepositoryPath = RepoController.cloneRepository(cloneUrl, boolNoCache, boolNoClone);
 
         String pathToGitFolder = cacheRepositoryPath + "/.git";
         String outFilePath = cacheRepositoryPath + "/cdshvl/fake.json";
@@ -80,23 +81,31 @@ class Routes {
         return ShovelExecution.runSingle(startEnv, startEnv.getFilePath(), true).toJson();
     }
 
-    static Collection<String> listFiles(String url, String sha, String noCache) {
+    static Collection<String> listFiles(String url, String sha, String noCache, String noClone) {
         boolean boolNoCache = Boolean.parseBoolean(noCache);
-        String cacheRepositoryPath = RepoController.cloneRepository(url, boolNoCache);
+        boolean boolNoClone = Boolean.parseBoolean(noClone);
+        nand(boolNoCache, boolNoClone);
+        String cacheRepositoryPath = RepoController.cloneRepository(url, boolNoCache, boolNoClone);
         String pathToGitFolder = cacheRepositoryPath + "/.git";
         String repositoryName = cacheRepositoryPath.substring(cacheRepositoryPath.lastIndexOf("/") + 1);
         return RepoController.getFiles(pathToGitFolder, repositoryName, sha);
     }
 
-    static Collection<Object> listMethods(String url, String path, String sha, String noCache) {
+    static Collection<Object> listMethods(String url, String path, String sha, String noCache, String noClone) {
         boolean boolNoCache = Boolean.parseBoolean(noCache);
-        String cacheRepositoryPath = RepoController.cloneRepository(url, boolNoCache);
-        if (path.startsWith("/")) {
-            path = path.substring(1);
-        }
+        boolean boolNoClone = Boolean.parseBoolean(noClone);
+        nand(boolNoCache, boolNoClone);
+        String cacheRepositoryPath = RepoController.cloneRepository(url, boolNoCache, boolNoClone);
+        path = path.startsWith("/") ? path.substring(1) : path;
         String pathToGitFolder = cacheRepositoryPath + "/.git";
         String repositoryName = cacheRepositoryPath.substring(cacheRepositoryPath.lastIndexOf("/") + 1);
         return ParseController.getMethods(pathToGitFolder, repositoryName, sha, path);
+    }
+
+    private static void nand(boolean a, boolean b) {
+        if (a && b) {
+            throw new IllegalArgumentException("Not possible to not clone and not use cache");
+        }
     }
 
 }
