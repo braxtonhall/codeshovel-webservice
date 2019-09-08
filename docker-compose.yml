@@ -12,7 +12,7 @@ services:
       - GITHUB_TOKEN
     volumes:
       - "${CODESHOVEL_LOG_PATH}:/requests.csv"
-      - "${CODESHOVEL_CACHE_PATH}:cache"
+      - "${CODESHOVEL_CACHE_PATH}:/cache"
   frontend:
     build:
       args:
