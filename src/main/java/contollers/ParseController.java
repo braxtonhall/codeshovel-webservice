@@ -1,20 +1,25 @@
 package contollers;
 
+import com.felixgrund.codeshovel.entities.Yparameter;
+import com.felixgrund.codeshovel.exceptions.NoParserFoundException;
+import com.felixgrund.codeshovel.exceptions.ParseException;
+import com.felixgrund.codeshovel.parser.Yfunction;
+import com.felixgrund.codeshovel.parser.Yparser;
+import com.felixgrund.codeshovel.parser.impl.JavaParser;
+import com.felixgrund.codeshovel.parser.impl.PythonParser;
 import com.felixgrund.codeshovel.services.RepositoryService;
 import com.felixgrund.codeshovel.services.impl.CachingRepositoryService;
+import com.felixgrund.codeshovel.util.ParserFactory;
 import com.felixgrund.codeshovel.util.Utl;
 import com.felixgrund.codeshovel.wrappers.Commit;
-import com.github.javaparser.JavaParser;
-import com.github.javaparser.ast.Modifier;
-import com.github.javaparser.ast.body.MethodDeclaration;
-import com.github.javaparser.ast.body.Parameter;
-import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
+import com.felixgrund.codeshovel.wrappers.StartEnvironment;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.lib.Repository;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class ParseController {
     public static Collection<Object> getMethods(String repositoryPathGit,
@@ -52,49 +57,97 @@ public class ParseController {
             Git git = new Git(repository);
             RepositoryService repositoryService = new CachingRepositoryService(git, repository, repositoryName, repositoryPathGit);
             Commit startCommit = repositoryService.findCommitByName(startCommitName);
+            StartEnvironment startEnv = new StartEnvironment(repositoryService);
+            startEnv.setRepositoryPath(repositoryPathGit);
+            startEnv.setFilePath(filepath);
+            startEnv.setStartCommitName(startCommitName);
+            startEnv.setFileName(Utl.getFileName(startEnv.getFilePath()));
+            startEnv.setStartCommit(startCommit);
             String startFileContent = repositoryService.findFileContent(startCommit, filepath);
-            new VoidVisitorAdapter<Object>() {
-                @Override
-                public void visit(MethodDeclaration md, Object arg) {
-                    super.visit(md, arg);
-                    if (md.getBody().isPresent()) {
-                        output.add(new MethodTransport(
-                                buildName(md),
-                                md.getName().getRange().isPresent() ? md.getName().getRange().get().begin.line : 0,
-                                md.getName().toString(),
-                                md.isStatic(),
-                                md.isAbstract(),
-                                Modifier.getAccessSpecifier(md.getModifiers()).asString()
-                        ));
-                    }
+            Yparser parser = ParserFactory.getParser(startEnv, filepath, startFileContent, startEnv.getStartCommit());
+
+            List<Yfunction> methods = parser.getAllMethods();
+            for (Yfunction method : methods) {
+                String longName;
+                if (filepath.matches(PythonParser.ACCEPTED_FILE_EXTENSION)) {
+                    longName = buildPythonLongName(method);
+                } else {
+                    longName = buildJavaLongName(method);
                 }
-            }.visit(JavaParser.parse(startFileContent), null);
+                int startLine = method.getNameLineNumber();
+                String methodName = method.getName();
+                boolean isStatic = method.getModifiers().getModifiers().contains("static");
+                boolean isAbstract = method.getModifiers().getModifiers().contains("abstract");
+                String visibility = "";
+                if (method.getModifiers().getModifiers().contains("public")) {
+                    visibility = "public";
+                } else if (method.getModifiers().getModifiers().contains("private")) {
+                    visibility = "private";
+                } else if (method.getModifiers().getModifiers().contains("protected")) {
+                    visibility = "protected";
+                }
+                output.add(new MethodTransport(longName, startLine, methodName, isStatic, isAbstract, visibility));
+            }
+            
             return output;
         } catch (IOException ioe) {
             System.out.println("ParseController::getMethods(..) - Error reading from disk " + ioe.toString());
             throw new InternalError("Was not able to read file from disk");
+        } catch (NoParserFoundException e) {
+            System.out.println("ParseController::getMethods(..) - Error finding parser " + e.toString());
+            throw new InternalError("Was not able to get required parser");
+        } catch (ParseException e) {
+            System.out.println("ParseController::getMethods(..) - Error parsing supplied file " + e.toString());
+            throw new InternalError("Was not able to parse input file");
         }
     }
-
-    private static String buildName(MethodDeclaration md) {
-        StringBuilder parameters = new StringBuilder();
-        
-        for(Parameter parameter:md.getParameters()) { // TODO include meta like final
-            if(parameters.length() > 0) {
-                parameters.append(", ");
+    
+    private static String buildJavaLongName(Yfunction method) {
+        StringBuilder longName = new StringBuilder();
+        for (String m : method.getModifiers().getModifiers()) {
+            longName.append(m);
+            longName.append(" ");
+        }
+        longName.append(method.getReturnStmt().getType());
+        longName.append(method.getName());
+        longName.append("(");
+        if (method.getParameters().size() != 0) {
+            for (Yparameter p : method.getParameters()) {
+                longName.append(p.getType());
+                longName.append(" ");
+                longName.append(p.getName());
+                longName.append(", ");
             }
-            parameters.append(parameter.getType());
-            parameters.append(" ");
-            parameters.append(parameter.getName());
+            longName.delete(longName.length() - 2, longName.length());
         }
+        longName.append(");");
+        return longName.toString();
+    }
 
-        String accessModifier = Modifier.getAccessSpecifier(md.getModifiers()).asString();
-        if (!accessModifier.equals("")) {
-            accessModifier = accessModifier + ' ';
+    private static String buildPythonLongName(Yfunction method) {
+        StringBuilder longName = new StringBuilder();
+        for (String m : method.getModifiers().getModifiers()) {
+            longName.append(m);
+            longName.append(" ");
         }
-
-        String returnType = md.getType().toString();
-
-        return accessModifier + returnType + ' ' + md.getName() + '(' + parameters.toString() + ");";
+        longName.append(method.getName());
+        longName.append("(");
+        if (method.getParameters().size() != 0) {
+            for (Yparameter p : method.getParameters()) {
+                longName.append(p.getName());
+                if (!p.getType().equals("")) {
+                    longName.append(":");
+                    longName.append(p.getType());
+                }
+                longName.append(", ");
+            }
+            longName.delete(longName.length() - 2, longName.length());
+        }
+        longName.append(")");
+        if (method.getReturnStmt().getType() != null) {
+            longName.append(" -> ");
+            longName.append(method.getReturnStmt().getType());
+        }
+        return longName.toString();
     }
 }

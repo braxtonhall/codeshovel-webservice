@@ -36,7 +36,7 @@
         <dependency>
             <groupId>com.github.ataraxie</groupId>
             <artifactId>codeshovel</artifactId>
-            <version>webservice-support-SNAPSHOT</version>
+            <version>lang~python-3fd7f855f2-1</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jgit</groupId>
