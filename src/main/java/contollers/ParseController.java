@@ -68,12 +68,7 @@ public class ParseController {
 
             List<Yfunction> methods = parser.getAllMethods();
             for (Yfunction method : methods) {
-                String longName;
-                if (filepath.matches(PythonParser.ACCEPTED_FILE_EXTENSION)) {
-                    longName = buildPythonLongName(method);
-                } else {
-                    longName = buildJavaLongName(method);
-                }
+                String longName = buildLongName(method, filepath);
                 int startLine = method.getNameLineNumber();
                 String methodName = method.getName();
                 boolean isStatic = method.getModifiers().getModifiers().contains("static");
@@ -99,6 +94,16 @@ public class ParseController {
         } catch (ParseException e) {
             System.out.println("ParseController::getMethods(..) - Error parsing supplied file " + e.toString());
             throw new InternalError("Was not able to parse input file");
+        }
+    }
+    
+    private static String buildLongName(Yfunction method, String filepath) {
+        if (filepath.matches(PythonParser.ACCEPTED_FILE_EXTENSION)) {
+            return buildPythonLongName(method);
+        } else if (filepath.matches(JavaParser.ACCEPTED_FILE_EXTENSION)) {
+            return buildJavaLongName(method);
+        } else {
+            throw new IllegalArgumentException("Unsupported extension provided");
         }
     }
     

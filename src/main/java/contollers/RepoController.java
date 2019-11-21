@@ -112,8 +112,10 @@ public class RepoController {
             Git git = new Git(repository);
             RepositoryService repositoryService = new CachingRepositoryService(git, repository, repositoryName, repositoryPathGit);
             Commit startCommit = repositoryService.findCommitByName(startCommitName);
-            List<String> files = repositoryService.findFilesByExtension(startCommit, "java");
-            files.addAll(repositoryService.findFilesByExtension(startCommit, "py"));
+            List<String> files = new ArrayList<>();
+            for (String extension : WebServiceEnv.LEGAL_EXTENSIONS.split(",")) {
+                files.addAll(repositoryService.findFilesByExtension(startCommit, extension));
+            }
             return files;
         } catch (IOException ioe) {
             throw new InternalError("RepoController::getFiles() - Was not able to find commit");
