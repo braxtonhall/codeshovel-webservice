@@ -114,6 +114,7 @@ public class ParseController {
             longName.append(" ");
         }
         longName.append(method.getReturnStmt().getType());
+        longName.append(" ");
         longName.append(method.getName());
         longName.append("(");
         if (method.getParameters().size() != 0) {
