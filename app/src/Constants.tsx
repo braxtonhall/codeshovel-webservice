@@ -97,10 +97,10 @@ export class Constants {
 
 	public static readonly INVALID_URL_ERROR_TEXT: string = "Please enter a link to proceed.";
 
-	public static readonly LANDING_TUTORIAL_TEXT: string = "Welcome. For a live demonstration of the codeshovel web service, you can select example by clicking a method on the left, or enter a link below and follow the steps on the next few pages to try it on your favourite public Java repo.";
+	public static readonly LANDING_TUTORIAL_TEXT: string = "Welcome. For a live demonstration of the historyfinder web service, you can select example by clicking a method on the left, or enter a link below and follow the steps on the next few pages to try it on your favourite public Java repo.";
 
-	public static readonly SERVER_BUSY_ERROR_TEXT: string = "The com.codeshovel.rest.server is under heavy load. Please try again in a few minutes!";
-	public static readonly INTERNAL_ERROR_TEXT: string = "The com.codeshovel.rest.server is having trouble processing this specific request. Please try another.";
+	public static readonly SERVER_BUSY_ERROR_TEXT: string = "The server is under heavy load. Please try again in a few minutes!";
+	public static readonly INTERNAL_ERROR_TEXT: string = "The server is having trouble processing this specific request. Please try another.";
 	public static readonly CACHE_ERROR_TEXT: string = "Oddly we couldn't couldn't find this response in our cache.";
 
 	public static readonly EXAMPLE_TEXT_SIZE: number = 6;
@@ -123,7 +123,7 @@ export class Constants {
 	public static readonly METHODS_REQUEST_ERROR_TEXT: string = "We couldn't find any methods in this file. Try another?";
 	public static readonly METHOD_NAME_TEXT_SIZE:number = 10;
 
-	public static readonly RESULTS_REQUEST_ERROR_TEXT: string = "The com.codeshovel.rest.server is having some trouble processing this request. Please try another method.";
+	public static readonly RESULTS_REQUEST_ERROR_TEXT: string = "The server is having some trouble processing this request. Please try another method.";
 
 	public static readonly RESULTS_TUTORIAL_TEXT: string = "Each row on this page represents one commit that changed this method, and the colours correspond to different change types. Click on Author, Commit or File to visit their respective pages on GitHub. Click on Type or Diff to view more information on this page.";
 

@@ -463,13 +463,13 @@ export default class App extends React.Component<any, IAppState> {
 						windowWidth={this.state.width}
 						method={this.state.method}
 					/>
-					<About
-						proceedToPage={this.proceedToPage}
-						active={this.state.page === Pages.ABOUT}
-						page={this.state.page}
-						windowHeight={this.state.height}
-						windowWidth={this.state.width}
-					/>
+					{/*<About*/}
+						{/*proceedToPage={this.proceedToPage}*/}
+						{/*active={this.state.page === Pages.ABOUT}*/}
+						{/*page={this.state.page}*/}
+						{/*windowHeight={this.state.height}*/}
+						{/*windowWidth={this.state.width}*/}
+					{/*/>*/}
 					<SmallButton
 						active={this.state.page === Pages.ABOUT}
 						onClick={() => {if (this.history.length > 0) window.history.back()}}
@@ -481,17 +481,17 @@ export default class App extends React.Component<any, IAppState> {
 						left={-30}
 						bottom={5}
 					/>
-					<SmallButton
-						active={this.state.page !== Pages.ABOUT && (this.state.showAbout || this.history.length > 0)}
-						onClick={() => this.proceedToPage(Pages.ABOUT)}
-						width={30}
-						height={30}
-						backgroundImage={`url(${process.env.PUBLIC_URL}/question.png)`}
-						backgroundSize={15}
-						shift={this.state.page === Pages.ABOUT ? 35 : 0}
-						left={5}
-						bottom={5}
-					/>
+					{/*<SmallButton*/}
+						{/*active={this.state.page !== Pages.ABOUT && (this.state.showAbout || this.history.length > 0)}*/}
+						{/*onClick={() => this.proceedToPage(Pages.ABOUT)}*/}
+						{/*width={30}*/}
+						{/*height={30}*/}
+						{/*backgroundImage={`url(${process.env.PUBLIC_URL}/question.png)`}*/}
+						{/*backgroundSize={15}*/}
+						{/*shift={this.state.page === Pages.ABOUT ? 35 : 0}*/}
+						{/*left={5}*/}
+						{/*bottom={5}*/}
+					{/*/>*/}
 					<LargeButton
 						active={this.state.page > Pages.LANDING && this.state.page < Pages.ABOUT}
 						handleClick={() => setImmediate(this.copyText)}

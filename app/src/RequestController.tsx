@@ -113,7 +113,7 @@ export class RequestController {
 				return await res.json();
 			}
 		} catch (e) {
-			// Keep other com.codeshovel.rest.errors in method
+			// Keep other com.historyfinder.rest.errors in method
 		}
 		if (status === 503) {
 			throw new ServerBusyError("RequestController not able to handle request.");

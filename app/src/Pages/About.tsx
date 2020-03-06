@@ -6,10 +6,10 @@ import {Constants} from "../Constants";
 
 export class About extends Page<IAboutProps, IAboutState> {
 	protected readonly page = Pages.ABOUT;
-	private readonly codeshovelRepo: string = `https://github.com/ataraxie/codeshovel`;
-	private readonly codeshovelUiRepo: string = `https://github.com/braxtonhall/codeshovel-ui`;
-	private readonly codeshovelWebserviceRepo: string = `https://github.com/braxtonhall/codeshovel-webservice`;
-	private readonly codeshovelPaperRepo: string = `https://open.library.ubc.ca/cIRcle/collections/ubctheses/24/items/1.0379647`;
+	private readonly historyfinderRepo: string = `https://github.com/ataraxie/historyfinder`;
+	private readonly historyfinderUiRepo: string = `https://github.com/braxtonhall/historyfinder-ui`;
+	private readonly historyfinderWebserviceRepo: string = `https://github.com/braxtonhall/historyfinder-webservice`;
+	private readonly historyfinderPaperRepo: string = `https://open.library.ubc.ca/cIRcle/collections/ubctheses/24/items/1.0379647`;
 	private readonly splLink: string = `https://spl.cs.ubc.ca/`;
 	private readonly ubcLink: string = `https://www.ubc.ca`;
 
@@ -84,25 +84,25 @@ export class About extends Page<IAboutProps, IAboutState> {
 				>
 					<div
 						style={{
-							fontSize: this.getFontSize("codeshovel", 3),
+							fontSize: this.getFontSize("historyfinder", 3),
 							top: "5%",
 							left: "10%",
 							position: "absolute",
 							textAlign: "center",
 						}}
 					>
-						<code>codeshovel</code>
+						<code>historyfinder</code>
 						<br/>
 						<div style={{fontSize: this.getFontSize("Unearthing Method Histories")}}>Unearthing Method Histories</div>
 						<div
 							style={{fontSize: this.getBoxFontSize(0.04), textAlign: "left", position: "absolute", marginTop: "8%", width: this.getFontSize("", 16.5)}}
 						>
 							<div style={{marginBottom: "5%", fontSize: "70%"}}>
-								<code>codeshovel</code> digs through source code to unearth the histories for methods.
+								<code>historyfinder</code> digs through source code to unearth the histories for methods.
 								Currently implemented for Java and Python with more languages to follow.
 							</div>
 							<div style={{marginBottom: "5%", fontSize: "60%"}}>
-								<code>codeshovel</code> is a tool for navigating how source code methods have evolved, across the kinds of evolutionary changes applied to the method, including most common refactorings, that the method saw throughout its life span.
+								<code>historyfinder</code> is a tool for navigating how source code methods have evolved, across the kinds of evolutionary changes applied to the method, including most common refactorings, that the method saw throughout its life span.
 								It is capable of tracking a method not only as it moves between line ranges, but as it moves through classes and around a codebase, from file to file.
 							</div>
 							{!mobileView ?
@@ -112,7 +112,7 @@ export class About extends Page<IAboutProps, IAboutState> {
 								""
 							}
 							<div style={{marginBottom: "0.5%", fontSize: "55%"}}>
-								codeshovel is open source, so check us out!
+								historyfinder is open source, so check us out!
 							</div>
 							<div
 								style={{
@@ -135,46 +135,46 @@ export class About extends Page<IAboutProps, IAboutState> {
 								>
 									<a
 										className="SubtleButton CommitRowCell"
-										href={this.codeshovelRepo}
+										href={this.historyfinderRepo}
 										style={{color: "black", backgroundColor: "rgba(255, 255, 255, 0.3)"}}
 										onClick={(ev) => {
 											ev.preventDefault();
-											window.open(this.codeshovelRepo, "_blank");
+											window.open(this.historyfinderRepo, "_blank");
 										}}
 
 									>
-										codeshovel
+										historyfinder
 									</a>
 									<a
 										className="SubtleButton CommitRowCell"
-										href={this.codeshovelWebserviceRepo}
+										href={this.historyfinderWebserviceRepo}
 										style={{color: "black", backgroundColor: "rgba(255, 255, 255, 0.1)"}}
 										onClick={(ev) => {
 											ev.preventDefault();
-											window.open(this.codeshovelWebserviceRepo, "_blank");
+											window.open(this.historyfinderWebserviceRepo, "_blank");
 										}}
 									>
 										webservice
 									</a>
 									<a
 										className="SubtleButton CommitRowCell"
-										href={this.codeshovelUiRepo}
+										href={this.historyfinderUiRepo}
 										style={{color: "black", backgroundColor: "rgba(255, 255, 255, 0.2)"}}
 										onClick={(ev) => {
 											ev.preventDefault();
-											window.open(this.codeshovelUiRepo, "_blank");
+											window.open(this.historyfinderUiRepo, "_blank");
 										}}
 									>
 										ui
 									</a>
 									<a
 										className="SubtleButton CommitRowCell Disabled"
-										href={this.codeshovelPaperRepo}
+										href={this.historyfinderPaperRepo}
 										style={{color: "black", backgroundColor: "rgba(255, 255, 255, 0.15)"}}
 										// style={{color: "black", backgroundColor: "#a8a8a8", pointerEvents: "none"}} // Disabled view TODO
 										onClick={(ev) => {
 											ev.preventDefault();
-											window.open(this.codeshovelPaperRepo, "_blank");
+											window.open(this.historyfinderPaperRepo, "_blank");
 										}}
 									>
 										paper
@@ -197,7 +197,7 @@ export class About extends Page<IAboutProps, IAboutState> {
 							image={"url(https://avatars2.githubusercontent.com/u/1646086?s=400&v=4)"}
 							name={"Felix Grund"}
 							username={"ataraxie"}
-							info={"Felix is a software developer, MSc student, and the founder of codeshovel."}
+							info={"Felix is a software developer, MSc student, and the founder of historyfinder."}
 
 						/>
 						<Contributor
@@ -206,7 +206,7 @@ export class About extends Page<IAboutProps, IAboutState> {
 							image={"url(https://avatars2.githubusercontent.com/u/2560480?s=400&v=4)"}
 							name={"Nick C. Bradley"}
 							username={"nickbradley"}
-							info={"Nick is a PhD student, and co-author of the codeshovel thesis paper."}
+							info={"Nick is a PhD student, and co-author of the historyfinder thesis paper."}
 							link={"https://www.ncbradley.com/"}
 							linkDesc={"ncbradley"}
 
@@ -217,7 +217,7 @@ export class About extends Page<IAboutProps, IAboutState> {
 							image={"url(https://avatars1.githubusercontent.com/u/89003?s=400&v=4)"}
 							name={"Reid Holmes"}
 							username={"rtholmes"}
-							info={"Reid is an Associate Professor of Computer Science, and supervisor on codeshovel."}
+							info={"Reid is an Associate Professor of Computer Science, and supervisor on historyfinder."}
 							link={"https://www.cs.ubc.ca/~rtholmes/"}
 							linkDesc={"cs.ubc/rtholmes"}
 						/>
@@ -227,7 +227,7 @@ export class About extends Page<IAboutProps, IAboutState> {
 							image={"url(https://avatars3.githubusercontent.com/u/35436247?s=400&v=4)"}
 							name={"Braxton Hall"}
 							username={"braxtonhall"}
-							info={"Braxton is a BA student, and the developer of the codeshovel web service."}
+							info={"Braxton is a BA student, and the developer of the historyfinder web service."}
 
 						/>
 						<div style={{

@@ -121,7 +121,7 @@ export class Landing extends Page<ILandingProps, ILandingState> {
 							}}
 						>
 							<p>
-								Welcome to <code>codeshovel</code>.
+								Welcome to <code>historyfinder</code>.
 							</p>
 							<p>
 								To begin, enter a link to a GitHub repository.
@@ -186,7 +186,7 @@ export class Landing extends Page<ILandingProps, ILandingState> {
 						}}
 					>
 						<code>
-							codeshovel
+							historyfinder
 						</code>
 					</div>
 				}
@@ -249,7 +249,7 @@ class ExampleContainer extends FadeableElement<IExampleContainerProps, IExampleC
 							marginLeft: "6px",
 						}}
 					>
-						Welcome to <code>codeshovel</code>. Select a history.
+						Welcome to <code>historyfinder</code>. Select a history.
 					</div> : <div/>
 				}
 				<div
