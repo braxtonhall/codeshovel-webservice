@@ -1,0 +1,10 @@
+.git
+.gitignore
+*.iml
+**/README.md
+
+**/node_modules/
+**/build/
+**/cache/
+**/target/
+**/.idea
