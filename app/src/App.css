@@ -1,0 +1,352 @@
+.App {
+    text-align: center;
+}
+
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 40vmin;
+    pointer-events: none;
+}
+
+.App-header {
+    background-color: rgb(48, 47, 71);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+.BackgroundImage {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.NoScroll {
+    overflow: scroll scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.NoScroll::-webkit-scrollbar {
+    display: none;
+}
+
+.NoClick {
+    pointer-events: none;
+}
+
+.CommitRowCell {
+    text-align: center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.SubtleButton {
+    cursor: pointer;
+}
+
+.SubtleButton:hover {
+    opacity: 0.5;
+}
+
+.InvertedSubtleButton {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.InvertedSubtleButton:hover {
+    opacity: 1;
+}
+
+.HoverOpacityUp {
+    opacity: 0.8;
+}
+
+.HoverOpacityUp:hover {
+    opacity: 1;
+}
+
+.ExampleRow {
+    background-color: rgb(75, 90, 149);
+}
+
+.SampleExampleRow {
+    background-color: rgb(145, 137, 58);
+}
+
+.Underline {
+    /*text-decoration: underline;*/
+}
+
+.Underline:hover {
+    text-decoration: underline;
+}
+
+.d2h-code-linenumber {
+    cursor: auto;
+}
+
+.d2h-file-diff {
+    background-color: rgba(224, 224, 224, 0.99);
+    overflow: scroll scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.d2h-file-diff::-webkit-scrollbar {
+    display: none;
+}
+
+.d2h-file-diff .d2h-del.d2h-change {
+    background-color: #e2f0fe;
+}
+
+.d2h-file-header {
+    height: 0;
+    padding: 0 0;
+    border-bottom: 0;
+}
+
+.d2h-file-wrapper {
+    margin-bottom: 0;
+}
+
+.d2h-wrapper {
+    overflow: hidden hidden;
+}
+
+.hljs {
+    color: rgb(0, 0, 0);
+}
+
+.hljs-title {
+    color: rgb(0, 14, 110);
+}
+
+.Panel {
+    flex: 1;
+    position: absolute;
+    overflow: scroll scroll;
+    -ms-overflow-style: none;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.Panel::-webkit-scrollbar {
+    display: none;
+}
+
+.Rename {
+    color: black;
+    font-size: 17px;
+    font-weight: bold;
+    height: 50px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.RenameOld {
+    margin: 0 auto;
+    top: 0;
+    position: absolute;
+}
+
+.RenameNew {
+    margin: 0 auto;
+    bottom: 0;
+    position: absolute;
+}
+
+.Hitbox {
+    width: 39%;
+    height: 12%;
+    position: absolute;
+}
+
+.Hitbox1 {
+    transform: rotate(45deg) translate(72%, 340%);
+}
+
+.Hitbox2 {
+    transform: rotate(-45deg)  translate(-16%, 180%);
+}
+
+.Hitbox3 {
+    width: 15%;
+    height: 25%;
+    position: absolute;
+    transform: rotate(45deg)  translate(160%, 40%);
+}
+
+.Hitbox4 {
+    width: 25%;
+    height: 12%;
+    position: absolute;
+    transform: rotate(90deg) translate(100%, -190%);
+}
+
+.Hitbox5 {
+    width: 8%;
+    height: 70%;
+    position: absolute;
+    transform: translate(350%, 20%);
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes Fade-In {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes Fade-Out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes Pulse {
+    from {
+        color: black;
+    }
+    50% {
+        color: rgb(227, 208, 135);
+    }
+    to {
+        color: black;
+    }
+}
+
+@keyframes Expand {
+     from {
+         height: 0;
+         opacity: 0;
+         margin-bottom: 0;
+         margin-top: 0;
+     }
+     to {
+         height: 40px;
+         opacity: 1;
+         margin-bottom: 3px;
+         margin-top: 3px;
+     }
+ }
+
+@keyframes Contract {
+    from {
+        height: 40px;
+        opacity: 1;
+        margin-bottom: 3px;
+        margin-top: 3px;
+    }
+    to {
+        height: 0;
+        opacity: 0;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+}
+
+@keyframes Expand-mini {
+    from {
+        height: 0;
+        opacity: 0;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    to {
+        height: 8px;
+        opacity: 0.5;
+        margin-bottom: 1px;
+        margin-top: 0;
+    }
+}
+
+@keyframes Contract-mini {
+    from {
+        height: 8px;
+        opacity: 0.5;
+        margin-bottom: 1px;
+        margin-top: 0;
+    }
+    to {
+        height: 0;
+        opacity: 0;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+}
+
+.Ybodychange {
+    background-color: rgb(109, 99, 124);
+}
+
+.Yfilerename {
+    background-color: rgb(124, 94, 106);
+}
+
+.Yintroduced {
+    background-color: rgb(0, 0, 0);
+}
+
+.Yexceptionschange {
+    background-color: rgb(121, 124, 90);
+}
+
+.Ymodifierchange {
+    background-color: rgb(104, 124, 120);
+}
+
+.Ymovefromfile {
+    background-color: rgb(124, 115, 103);
+}
+
+.Ymultichange {
+    background-color: rgb(124, 124, 124);
+}
+
+.Ynochange {
+    background-color: rgb(124, 124, 124);
+}
+
+.Yparameterchange {
+    background-color: rgb(104, 124, 106);
+}
+
+.Yparametermetachange {
+    background-color: rgb(99, 124, 115);
+}
+
+.Yrename {
+    background-color: rgb(124, 101, 121);
+}
+
+.Yreturntypechange {
+    background-color: rgb(77, 113, 124);
+}
+

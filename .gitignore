@@ -1,8 +1,10 @@
 .env
-.idea/*
-cache
+.idea/
+cache/
 .DS_Store
-target
+target/
 *.gz
 *.csv
 *.log
+app/build/
+app/node_modules
