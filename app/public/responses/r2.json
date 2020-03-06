@@ -1,0 +1,1493 @@
+{
+	"repo": "https://github.com/kiegroup/drools.git",
+	"files": "r1",
+	"file": "drools-compiler/src/main/java/org/drools/compiler/builder/impl/KnowledgeBuilderImpl.java",
+	"methods": [
+		{
+			"longName": "KnowledgeBuilderImpl::setReleaseId(ReleaseId releaseId)",
+			"startLine": 321,
+			"methodName": "setReleaseId",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getCurrentResource()",
+			"startLine": 325,
+			"methodName": "getCurrentResource",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": ""
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getKnowledgeBase()",
+			"startLine": 329,
+			"methodName": "getKnowledgeBase",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getTypeBuilder()",
+			"startLine": 333,
+			"methodName": "getTypeBuilder",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": ""
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addPackageFromDrl(Reader reader)",
+			"startLine": 343,
+			"methodName": "addPackageFromDrl",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addPackageFromDrl(Reader reader, Resource sourceResource)",
+			"startLine": 356,
+			"methodName": "addPackageFromDrl",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addPackageFromDecisionTable(Resource resource, ResourceConfiguration configuration)",
+			"startLine": 372,
+			"methodName": "addPackageFromDecisionTable",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::decisionTableToPackageDescr(Resource resource, ResourceConfiguration configuration)",
+			"startLine": 380,
+			"methodName": "decisionTableToPackageDescr",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": ""
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::createDefaultDTableConf()",
+			"startLine": 415,
+			"methodName": "createDefaultDTableConf",
+			"isStatic": true,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addPackageFromGuidedDecisionTable(Resource resource)",
+			"startLine": 421,
+			"methodName": "addPackageFromGuidedDecisionTable",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::guidedDecisionTableToPackageDescr(Resource resource)",
+			"startLine": 428,
+			"methodName": "guidedDecisionTableToPackageDescr",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": ""
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::generatedDrlToPackageDescr(Resource resource, String generatedDrl)",
+			"startLine": 438,
+			"methodName": "generatedDrlToPackageDescr",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::generatedDslrToPackageDescr(Resource resource, String dslr)",
+			"startLine": 455,
+			"methodName": "generatedDslrToPackageDescr",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": ""
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::dumpDrlGeneratedFromDTable(File dumpDir, String generatedDrl, String srcPath)",
+			"startLine": 459,
+			"methodName": "dumpDrlGeneratedFromDTable",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::createDumpDrlFile(File dumpDir, String fileName, String extension)",
+			"startLine": 474,
+			"methodName": "createDumpDrlFile",
+			"isStatic": true,
+			"isAbstract": false,
+			"visibility": "protected"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addPackageFromScoreCard(Resource resource, ResourceConfiguration configuration)",
+			"startLine": 478,
+			"methodName": "addPackageFromScoreCard",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addPackageFromGuidedScoreCard(Resource resource)",
+			"startLine": 491,
+			"methodName": "addPackageFromGuidedScoreCard",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addPackageFromScoreCard(String pmmlString, String fileName)",
+			"startLine": 500,
+			"methodName": "addPackageFromScoreCard",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addPackageFromTemplate(Resource resource)",
+			"startLine": 519,
+			"methodName": "addPackageFromTemplate",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::templateToPackageDescr(Resource resource)",
+			"startLine": 526,
+			"methodName": "templateToPackageDescr",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": ""
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::conversionResultToPackageDescr(Resource resource, ResourceConversionResult resourceConversionResult)",
+			"startLine": 535,
+			"methodName": "conversionResultToPackageDescr",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addPackageFromDrl(Resource resource)",
+			"startLine": 547,
+			"methodName": "addPackageFromDrl",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::drlToPackageDescr(Resource resource)",
+			"startLine": 554,
+			"methodName": "drlToPackageDescr",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": ""
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addPackageFromXml(Reader reader)",
+			"startLine": 582,
+			"methodName": "addPackageFromXml",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addPackageFromXml(Resource resource)",
+			"startLine": 599,
+			"methodName": "addPackageFromXml",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::xmlToPackageDescr(Resource resource)",
+			"startLine": 606,
+			"methodName": "xmlToPackageDescr",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": ""
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addPackageFromDrl(Reader source, Reader dsl)",
+			"startLine": 628,
+			"methodName": "addPackageFromDrl",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addPackageFromDslr(Resource resource)",
+			"startLine": 642,
+			"methodName": "addPackageFromDslr",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::dslrToPackageDescr(Resource resource)",
+			"startLine": 649,
+			"methodName": "dslrToPackageDescr",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": ""
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::dslrReaderToPackageDescr(Resource resource, Reader dslrReader)",
+			"startLine": 654,
+			"methodName": "dslrReaderToPackageDescr",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addDsl(Resource resource)",
+			"startLine": 688,
+			"methodName": "addDsl",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addRuleFlow(Reader processSource)",
+			"startLine": 708,
+			"methodName": "addRuleFlow",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addProcessFromXml(Resource resource)",
+			"startLine": 715,
+			"methodName": "addProcessFromXml",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getProcessBuilder()",
+			"startLine": 723,
+			"methodName": "getProcessBuilder",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addProcessFromXml(Reader processSource)",
+			"startLine": 727,
+			"methodName": "addProcessFromXml",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addKnowledgeResource(Resource resource, ResourceType type, ResourceConfiguration configuration)",
+			"startLine": 732,
+			"methodName": "addKnowledgeResource",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addPackageForExternalType(Resource resource, ResourceType type, ResourceConfiguration configuration)",
+			"startLine": 781,
+			"methodName": "addPackageForExternalType",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": ""
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addPackageForExternalType(ResourceType type, List<ResourceWithConfiguration> resources)",
+			"startLine": 793,
+			"methodName": "addPackageForExternalType",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": ""
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addPackageFromXSD(Resource resource, JaxbConfigurationImpl configuration)",
+			"startLine": 800,
+			"methodName": "addPackageFromXSD",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": ""
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addPackageFromChangeSet(Resource resource)",
+			"startLine": 813,
+			"methodName": "addPackageFromChangeSet",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": ""
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addPackageFromInputStream$DroolsError::getMessage()",
+			"startLine": 871,
+			"methodName": "getMessage",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addPackageFromInputStream$DroolsError::getLines()",
+			"startLine": 876,
+			"methodName": "getLines",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addPackageFromInputStream(Resource resource)",
+			"startLine": 850,
+			"methodName": "addPackageFromInputStream",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": ""
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::overrideReSource(InternalKnowledgePackage pkg, Resource res)",
+			"startLine": 884,
+			"methodName": "overrideReSource",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::isSwappable(Resource original, Resource source)",
+			"startLine": 908,
+			"methodName": "isSwappable",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addPackage(PackageDescr packageDescr)",
+			"startLine": 918,
+			"methodName": "addPackage",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::compileKnowledgePackages(PackageDescr packageDescr, PackageRegistry pkgRegistry)",
+			"startLine": 932,
+			"methodName": "compileKnowledgePackages",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "protected"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::wireAllRules()",
+			"startLine": 939,
+			"methodName": "wireAllRules",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "protected"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::processKieBaseTypes()",
+			"startLine": 949,
+			"methodName": "processKieBaseTypes",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "protected"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::compileRete(PackageDescr packageDescr)",
+			"startLine": 959,
+			"methodName": "compileRete",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "protected"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addBuilderResult(KnowledgeBuilderResult result)",
+			"startLine": 974,
+			"methodName": "addBuilderResult",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::computeIfAbsent(ResourceType resourceType, String namespace, java.util.function.Function<? super ResourceType, T> mappingFunction)",
+			"startLine": 978,
+			"methodName": "computeIfAbsent",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getOrCreatePackageRegistry(PackageDescr packageDescr)",
+			"startLine": 991,
+			"methodName": "getOrCreatePackageRegistry",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::createPackageRegistry(PackageDescr packageDescr)",
+			"startLine": 1001,
+			"methodName": "createPackageRegistry",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::initPackage(PackageDescr packageDescr)",
+			"startLine": 1035,
+			"methodName": "initPackage",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::compileFunctions(PackageDescr packageDescr, PackageRegistry pkgRegistry)",
+			"startLine": 1065,
+			"methodName": "compileFunctions",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::compileRules(PackageDescr packageDescr, PackageRegistry pkgRegistry)",
+			"startLine": 1101,
+			"methodName": "compileRules",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::compileAllQueries(PackageDescr packageDescr, PackageRegistry pkgRegistry, List<RuleDescr> rules)",
+			"startLine": 1115,
+			"methodName": "compileAllQueries",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::compileRulesLevel(PackageDescr packageDescr, PackageRegistry pkgRegistry, List<RuleDescr> rules)",
+			"startLine": 1129,
+			"methodName": "compileRulesLevel",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::initRuleDescr(PackageDescr packageDescr, PackageRegistry pkgRegistry, RuleDescr ruleDescr)",
+			"startLine": 1170,
+			"methodName": "initRuleDescr",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addRule(RuleBuildContext context)",
+			"startLine": 1183,
+			"methodName": "addRule",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::internalAddRule(RuleBuildContext context)",
+			"startLine": 1189,
+			"methodName": "internalAddRule",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::filterAccepts(ResourceChange.Type type, String namespace, String name)",
+			"startLine": 1212,
+			"methodName": "filterAccepts",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": ""
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::filterAcceptsRemoval(ResourceChange.Type type, String namespace, String name)",
+			"startLine": 1216,
+			"methodName": "filterAcceptsRemoval",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::preProcessRules(PackageDescr packageDescr, PackageRegistry pkgRegistry)",
+			"startLine": 1220,
+			"methodName": "preProcessRules",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::buildRuleBuilderContexts(List<RuleDescr> rules, PackageRegistry pkgRegistry)",
+			"startLine": 1275,
+			"methodName": "buildRuleBuilderContexts",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::buildRuleBuilderContext(PackageRegistry pkgRegistry, RuleDescr ruleDescr)",
+			"startLine": 1285,
+			"methodName": "buildRuleBuilderContext",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::sortRulesByDependency(PackageDescr packageDescr, PackageRegistry pkgRegistry)",
+			"startLine": 1300,
+			"methodName": "sortRulesByDependency",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::sortRulesLevel(List<RuleDescr> rulesLevel, LinkedHashMap<String, RuleDescr> sorted, SortedRules sortedRules, Map<String, List<RuleDescr>> children)",
+			"startLine": 1361,
+			"methodName": "sortRulesLevel",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl$SortedRules::addRule(RuleDescr rule)",
+			"startLine": 1386,
+			"methodName": "addRule",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": ""
+		},
+		{
+			"longName": "KnowledgeBuilderImpl$SortedRules::newLevel()",
+			"startLine": 1390,
+			"methodName": "newLevel",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": ""
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::reportHierarchyErrors(Map<String, List<RuleDescr>> parents, Map<String, RuleDescr> sorted)",
+			"startLine": 1396,
+			"methodName": "reportHierarchyErrors",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::manageUnresolvedExtension(RuleDescr ruleDescr, Collection<RuleDescr> candidates)",
+			"startLine": 1416,
+			"methodName": "manageUnresolvedExtension",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getPackageDialect(PackageDescr packageDescr)",
+			"startLine": 1432,
+			"methodName": "getPackageDialect",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::updateResults()",
+			"startLine": 1446,
+			"methodName": "updateResults",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::updateResults(List<KnowledgeBuilderResult> results)",
+			"startLine": 1451,
+			"methodName": "updateResults",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::compileAll()",
+			"startLine": 1455,
+			"methodName": "compileAll",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::reloadAll()",
+			"startLine": 1461,
+			"methodName": "reloadAll",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getResults(List<KnowledgeBuilderResult> results)",
+			"startLine": 1467,
+			"methodName": "getResults",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addPackage(InternalKnowledgePackage newPkg)",
+			"startLine": 1474,
+			"methodName": "addPackage",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::mergePackage(InternalKnowledgePackage pkg, InternalKnowledgePackage newPkg)",
+			"startLine": 1529,
+			"methodName": "mergePackage",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::validateUniqueRuleNames(PackageDescr packageDescr)",
+			"startLine": 1586,
+			"methodName": "validateUniqueRuleNames",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "protected"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::validateRule(PackageDescr packageDescr, RuleDescr rule)",
+			"startLine": 1627,
+			"methodName": "validateRule",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::mergePackage(PackageRegistry pkgRegistry, PackageDescr packageDescr)",
+			"startLine": 1640,
+			"methodName": "mergePackage",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": ""
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::processOtherDeclarations(PackageRegistry pkgRegistry, PackageDescr packageDescr)",
+			"startLine": 1664,
+			"methodName": "processOtherDeclarations",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": ""
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::processGlobals(PackageRegistry pkgRegistry, PackageDescr packageDescr)",
+			"startLine": 1671,
+			"methodName": "processGlobals",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::processAccumulateFunctions(PackageRegistry pkgRegistry, PackageDescr packageDescr)",
+			"startLine": 1712,
+			"methodName": "processAccumulateFunctions",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::loadAccumulateFunction(PackageRegistry pkgRegistry, String identifier, String className)",
+			"startLine": 1722,
+			"methodName": "loadAccumulateFunction",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::processFunctions(PackageRegistry pkgRegistry, PackageDescr packageDescr)",
+			"startLine": 1741,
+			"methodName": "processFunctions",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getAndRegisterTypeDeclaration(Class<?> cls, String packageName)",
+			"startLine": 1759,
+			"methodName": "getAndRegisterTypeDeclaration",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::processEntryPointDeclarations(PackageRegistry pkgRegistry, PackageDescr packageDescr)",
+			"startLine": 1772,
+			"methodName": "processEntryPointDeclarations",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": ""
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::processWindowDeclarations(PackageRegistry pkgRegistry, PackageDescr packageDescr)",
+			"startLine": 1779,
+			"methodName": "processWindowDeclarations",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addFunction(FunctionDescr functionDescr, PackageRegistry pkgRegistry)",
+			"startLine": 1825,
+			"methodName": "addFunction",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::preCompileAddFunction(FunctionDescr functionDescr, PackageRegistry pkgRegistry)",
+			"startLine": 1832,
+			"methodName": "preCompileAddFunction",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::postCompileAddFunction(FunctionDescr functionDescr, PackageRegistry pkgRegistry)",
+			"startLine": 1838,
+			"methodName": "postCompileAddFunction",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getPackages()",
+			"startLine": 1854,
+			"methodName": "getPackages",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getBuilderConfiguration()",
+			"startLine": 1878,
+			"methodName": "getBuilderConfiguration",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getPackageRegistry(String name)",
+			"startLine": 1882,
+			"methodName": "getPackageRegistry",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getPackage(String name)",
+			"startLine": 1886,
+			"methodName": "getPackage",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getPackageRegistry()",
+			"startLine": 1890,
+			"methodName": "getPackageRegistry",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getPackageNames()",
+			"startLine": 1894,
+			"methodName": "getPackageNames",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getPackageDescrs(String packageName)",
+			"startLine": 1898,
+			"methodName": "getPackageDescrs",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getDslExpander()",
+			"startLine": 1906,
+			"methodName": "getDslExpander",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getGlobals()",
+			"startLine": 1917,
+			"methodName": "getGlobals",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::addGlobal(String name, Class<?> type)",
+			"startLine": 1921,
+			"methodName": "addGlobal",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::hasErrors()",
+			"startLine": 1929,
+			"methodName": "hasErrors",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getResults(ResultSeverity problemTypes)",
+			"startLine": 1933,
+			"methodName": "getResults",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getResultList(ResultSeverity severities)",
+			"startLine": 1938,
+			"methodName": "getResultList",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::hasResults(ResultSeverity problemTypes)",
+			"startLine": 1949,
+			"methodName": "hasResults",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getErrorList()",
+			"startLine": 1953,
+			"methodName": "getErrorList",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::hasWarnings()",
+			"startLine": 1967,
+			"methodName": "hasWarnings",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::hasInfo()",
+			"startLine": 1971,
+			"methodName": "hasInfo",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getWarnings()",
+			"startLine": 1975,
+			"methodName": "getWarnings",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getInfoList()",
+			"startLine": 1989,
+			"methodName": "getInfoList",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::reportError(KnowledgeBuilderError error)",
+			"startLine": 1993,
+			"methodName": "reportError",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getErrors()",
+			"startLine": 2002,
+			"methodName": "getErrors",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::resetErrors()",
+			"startLine": 2013,
+			"methodName": "resetErrors",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "protected"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::resetWarnings()",
+			"startLine": 2017,
+			"methodName": "resetWarnings",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "protected"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::resetProblemType(ResultSeverity problemType)",
+			"startLine": 2021,
+			"methodName": "resetProblemType",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::resetProblems()",
+			"startLine": 2031,
+			"methodName": "resetProblems",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "protected"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getDefaultDialect()",
+			"startLine": 2038,
+			"methodName": "getDefaultDialect",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getRootClassLoader()",
+			"startLine": 2060,
+			"methodName": "getRootClassLoader",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::inheritPackageAttributes(Map<String, AttributeDescr> pkgAttributes, RuleDescr ruleDescr)",
+			"startLine": 2065,
+			"methodName": "inheritPackageAttributes",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::parseChangeSet(Resource resource)",
+			"startLine": 2075,
+			"methodName": "parseChangeSet",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::registerBuildResource$DroolsError::getMessage()",
+			"startLine": 2109,
+			"methodName": "getMessage",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::registerBuildResource$DroolsError::getLines()",
+			"startLine": 2113,
+			"methodName": "getLines",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::registerBuildResource(Resource resource, ResourceType type)",
+			"startLine": 2090,
+			"methodName": "registerBuildResource",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::registerBuildResources(List<Resource> resources)",
+			"startLine": 2123,
+			"methodName": "registerBuildResources",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::undo()",
+			"startLine": 2127,
+			"methodName": "undo",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::removeObjectsGeneratedFromResource(Resource resource)",
+			"startLine": 2136,
+			"methodName": "removeObjectsGeneratedFromResource",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl$ResourceRemovalResult::add(ResourceRemovalResult other)",
+			"startLine": 2186,
+			"methodName": "add",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl$ResourceRemovalResult::mergeModified(boolean otherModified)",
+			"startLine": 2195,
+			"methodName": "mergeModified",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl$ResourceRemovalResult::isModified()",
+			"startLine": 2199,
+			"methodName": "isModified",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl$ResourceRemovalResult::getRemovedTypes()",
+			"startLine": 2203,
+			"methodName": "getRemovedTypes",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::rewireAllClassObjectTypes()",
+			"startLine": 2208,
+			"methodName": "rewireAllClassObjectTypes",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl$AssetFilter::accept(ResourceChange.Type type, String pkgName, String assetName)",
+			"startLine": 2226,
+			"methodName": "accept",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": ""
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getAssetFilter()",
+			"startLine": 2229,
+			"methodName": "getAssetFilter",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": ""
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::setAssetFilter(AssetFilter assetFilter)",
+			"startLine": 2233,
+			"methodName": "setAssetFilter",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::add(Resource resource, ResourceType type)",
+			"startLine": 2237,
+			"methodName": "add",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::batch()",
+			"startLine": 2242,
+			"methodName": "batch",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::add(Resource resource, ResourceType type, ResourceConfiguration configuration)",
+			"startLine": 2246,
+			"methodName": "add",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getKnowledgePackages()",
+			"startLine": 2253,
+			"methodName": "getKnowledgePackages",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::newKieBase()",
+			"startLine": 2267,
+			"methodName": "newKieBase",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::newKnowledgeBase(KieBaseConfiguration conf)",
+			"startLine": 2271,
+			"methodName": "newKnowledgeBase",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getTypeDeclaration(Class<?> cls)",
+			"startLine": 2284,
+			"methodName": "getTypeDeclaration",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::normalizeTypeDeclarationAnnotations(PackageDescr packageDescr, TypeResolver typeResolver)",
+			"startLine": 2288,
+			"methodName": "normalizeTypeDeclarationAnnotations",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::normalizeRuleAnnotations(PackageDescr packageDescr, TypeResolver typeResolver)",
+			"startLine": 2305,
+			"methodName": "normalizeRuleAnnotations",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::traverseAnnotations(BaseDescr descr, TypeResolver typeResolver, boolean isStrict)",
+			"startLine": 2313,
+			"methodName": "traverseAnnotations",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::normalizeAnnotations(AnnotatedBaseDescr annotationsContainer, TypeResolver typeResolver, boolean isStrict)",
+			"startLine": 2330,
+			"methodName": "normalizeAnnotations",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "protected"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::normalizeAnnotation(TypeResolver typeResolver, AnnotationDescr annotationDescr)",
+			"startLine": 2347,
+			"methodName": "normalizeAnnotation",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::normalizeAnnotationNonStrictName(String name)",
+			"startLine": 2410,
+			"methodName": "normalizeAnnotationNonStrictName",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::normalizeStrictAnnotation(TypeResolver typeResolver, AnnotationDescr annotationDescr)",
+			"startLine": 2417,
+			"methodName": "normalizeStrictAnnotation",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getBuilderCache()",
+			"startLine": 2427,
+			"methodName": "getBuilderCache",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "private"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::getCachedOrCreate(String key, Supplier<T> creator)",
+			"startLine": 2434,
+			"methodName": "getCachedOrCreate",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::buildPackages(Collection<CompositePackageDescr> packages)",
+			"startLine": 2448,
+			"methodName": "buildPackages",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::buildPackagesWithoutRules(Collection<CompositePackageDescr> packages)",
+			"startLine": 2453,
+			"methodName": "buildPackagesWithoutRules",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "public"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::initPackageRegistries(Collection<CompositePackageDescr> packages)",
+			"startLine": 2462,
+			"methodName": "initPackageRegistries",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "protected"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::normalizeTypeAnnotations(Collection<CompositePackageDescr> packages)",
+			"startLine": 2471,
+			"methodName": "normalizeTypeAnnotations",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "protected"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::normalizeRuleAnnotations(Collection<CompositePackageDescr> packages)",
+			"startLine": 2477,
+			"methodName": "normalizeRuleAnnotations",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "protected"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::buildEntryPoints(Collection<CompositePackageDescr> packages)",
+			"startLine": 2483,
+			"methodName": "buildEntryPoints",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "protected"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::buildTypeDeclarations(Collection<CompositePackageDescr> packages)",
+			"startLine": 2489,
+			"methodName": "buildTypeDeclarations",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "protected"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::buildOtherDeclarations(Collection<CompositePackageDescr> packages)",
+			"startLine": 2507,
+			"methodName": "buildOtherDeclarations",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "protected"
+		},
+		{
+			"longName": "KnowledgeBuilderImpl::buildRules(Collection<CompositePackageDescr> packages)",
+			"startLine": 2516,
+			"methodName": "buildRules",
+			"isStatic": false,
+			"isAbstract": false,
+			"visibility": "protected"
+		}
+	],
+	"method": {
+		"longName": "KnowledgeBuilderImpl::getKnowledgeBase()",
+		"startLine": 329,
+		"methodName": "getKnowledgeBase",
+		"isStatic": false,
+		"isAbstract": false,
+		"visibility": "public"
+	},
+	"history": {
+		"8afb2d5f86231faf6044e0dd97caefc2fca9624c": {
+			"type": "Ymodifierchange",
+			"commitMessage": "[DROOLS-1241] fix recognition of type as event during incremental compilation (#853)\n\n",
+			"commitDate": "2016-07-28, 7:05 AM",
+			"commitName": "8afb2d5f86231faf6044e0dd97caefc2fca9624c",
+			"commitAuthor": "Mario Fusco",
+			"commitDateOld": "2016-07-20, 9:38 AM",
+			"commitNameOld": "9435f787ddd48e3a38bd7e7018dfcefb00352184",
+			"commitAuthorOld": "Mario Fusco",
+			"daysBetweenCommits": 7.89,
+			"commitsBetweenForRepo": 4,
+			"commitsBetweenForFile": 1,
+			"diff": "@@ -1,3 +1,3 @@\n-    InternalKnowledgeBase getKnowledgeBase() {\n+    public InternalKnowledgeBase getKnowledgeBase() {\n         return kBase;\n     }\n\\ No newline at end of file\n",
+			"extendedDetails": {
+				"oldValue": "[]",
+				"newValue": "[public]"
+			}
+		},
+		"1f8dc32725276a68456c5c4315c6a7c0b3f222ad": {
+			"type": "Ymultichange(Ymovefromfile,Yreturntypechange,Ymodifierchange,Ybodychange,Yrename)",
+			"commitMessage": "major cleanup 4.x legacy API\n",
+			"commitDate": "2014-04-22, 12:12 AM",
+			"commitName": "1f8dc32725276a68456c5c4315c6a7c0b3f222ad",
+			"commitAuthor": "mariofusco",
+			"subchanges": [
+				{
+					"type": "Ymovefromfile",
+					"commitMessage": "major cleanup 4.x legacy API\n",
+					"commitDate": "2014-04-22, 12:12 AM",
+					"commitName": "1f8dc32725276a68456c5c4315c6a7c0b3f222ad",
+					"commitAuthor": "mariofusco",
+					"commitDateOld": "2014-04-16, 7:48 AM",
+					"commitNameOld": "16fc9b9bb70f0f7ab2ac078e06d642c637aad8b1",
+					"commitAuthorOld": "mariofusco",
+					"daysBetweenCommits": 5.68,
+					"commitsBetweenForRepo": 1,
+					"commitsBetweenForFile": 1,
+					"diff": "@@ -1,3 +1,3 @@\n-    public PackageBuilder getPackageBuilder() {\n-        return pkgBuilder;\n+    InternalKnowledgeBase getKnowledgeBase() {\n+        return kBase;\n     }\n\\ No newline at end of file\n",
+					"extendedDetails": {
+						"oldPath": "drools-compiler/src/main/java/org/drools/compiler/builder/impl/KnowledgeBuilderImpl.java",
+						"newPath": "drools-compiler/src/main/java/org/drools/compiler/builder/impl/KnowledgeBuilderImpl.java",
+						"oldMethodName": "getPackageBuilder",
+						"newMethodName": "getKnowledgeBase"
+					}
+				},
+				{
+					"type": "Yreturntypechange",
+					"commitMessage": "major cleanup 4.x legacy API\n",
+					"commitDate": "2014-04-22, 12:12 AM",
+					"commitName": "1f8dc32725276a68456c5c4315c6a7c0b3f222ad",
+					"commitAuthor": "mariofusco",
+					"commitDateOld": "2014-04-16, 7:48 AM",
+					"commitNameOld": "16fc9b9bb70f0f7ab2ac078e06d642c637aad8b1",
+					"commitAuthorOld": "mariofusco",
+					"daysBetweenCommits": 5.68,
+					"commitsBetweenForRepo": 1,
+					"commitsBetweenForFile": 1,
+					"diff": "@@ -1,3 +1,3 @@\n-    public PackageBuilder getPackageBuilder() {\n-        return pkgBuilder;\n+    InternalKnowledgeBase getKnowledgeBase() {\n+        return kBase;\n     }\n\\ No newline at end of file\n",
+					"extendedDetails": {
+						"oldValue": "PackageBuilder",
+						"newValue": "InternalKnowledgeBase"
+					}
+				},
+				{
+					"type": "Ymodifierchange",
+					"commitMessage": "major cleanup 4.x legacy API\n",
+					"commitDate": "2014-04-22, 12:12 AM",
+					"commitName": "1f8dc32725276a68456c5c4315c6a7c0b3f222ad",
+					"commitAuthor": "mariofusco",
+					"commitDateOld": "2014-04-16, 7:48 AM",
+					"commitNameOld": "16fc9b9bb70f0f7ab2ac078e06d642c637aad8b1",
+					"commitAuthorOld": "mariofusco",
+					"daysBetweenCommits": 5.68,
+					"commitsBetweenForRepo": 1,
+					"commitsBetweenForFile": 1,
+					"diff": "@@ -1,3 +1,3 @@\n-    public PackageBuilder getPackageBuilder() {\n-        return pkgBuilder;\n+    InternalKnowledgeBase getKnowledgeBase() {\n+        return kBase;\n     }\n\\ No newline at end of file\n",
+					"extendedDetails": {
+						"oldValue": "[public]",
+						"newValue": "[]"
+					}
+				},
+				{
+					"type": "Ybodychange",
+					"commitMessage": "major cleanup 4.x legacy API\n",
+					"commitDate": "2014-04-22, 12:12 AM",
+					"commitName": "1f8dc32725276a68456c5c4315c6a7c0b3f222ad",
+					"commitAuthor": "mariofusco",
+					"commitDateOld": "2014-04-16, 7:48 AM",
+					"commitNameOld": "16fc9b9bb70f0f7ab2ac078e06d642c637aad8b1",
+					"commitAuthorOld": "mariofusco",
+					"daysBetweenCommits": 5.68,
+					"commitsBetweenForRepo": 1,
+					"commitsBetweenForFile": 1,
+					"diff": "@@ -1,3 +1,3 @@\n-    public PackageBuilder getPackageBuilder() {\n-        return pkgBuilder;\n+    InternalKnowledgeBase getKnowledgeBase() {\n+        return kBase;\n     }\n\\ No newline at end of file\n",
+					"extendedDetails": {}
+				},
+				{
+					"type": "Yrename",
+					"commitMessage": "major cleanup 4.x legacy API\n",
+					"commitDate": "2014-04-22, 12:12 AM",
+					"commitName": "1f8dc32725276a68456c5c4315c6a7c0b3f222ad",
+					"commitAuthor": "mariofusco",
+					"commitDateOld": "2014-04-16, 7:48 AM",
+					"commitNameOld": "16fc9b9bb70f0f7ab2ac078e06d642c637aad8b1",
+					"commitAuthorOld": "mariofusco",
+					"daysBetweenCommits": 5.68,
+					"commitsBetweenForRepo": 1,
+					"commitsBetweenForFile": 1,
+					"diff": "@@ -1,3 +1,3 @@\n-    public PackageBuilder getPackageBuilder() {\n-        return pkgBuilder;\n+    InternalKnowledgeBase getKnowledgeBase() {\n+        return kBase;\n     }\n\\ No newline at end of file\n",
+					"extendedDetails": {
+						"oldValue": "getPackageBuilder",
+						"newValue": "getKnowledgeBase"
+					}
+				}
+			]
+		},
+		"30dd17f28a34017d81d73698a7af37ab0be33811": {
+			"type": "Yfilerename",
+			"commitMessage": "Resolve split-packages: move everything from drools-compiler under org.drools.compiler: move org.drools.builder\n",
+			"commitDate": "2013-03-15, 6:21 AM",
+			"commitName": "30dd17f28a34017d81d73698a7af37ab0be33811",
+			"commitAuthor": "Geoffrey De Smet",
+			"commitDateOld": "2013-03-15, 6:19 AM",
+			"commitNameOld": "c211935b201000aaf56bce69cd12d73a8d5724f3",
+			"commitAuthorOld": "Geoffrey De Smet",
+			"daysBetweenCommits": 0,
+			"commitsBetweenForRepo": 1,
+			"commitsBetweenForFile": 1,
+			"diff": "",
+			"extendedDetails": {
+				"oldPath": "drools-compiler/src/main/java/org/drools/builder/impl/KnowledgeBuilderImpl.java",
+				"newPath": "drools-compiler/src/main/java/org/drools/compiler/builder/impl/KnowledgeBuilderImpl.java"
+			}
+		},
+		"b2a9b0a4634921b9cd26f2496a8c92f20712c56f": {
+			"type": "Ybodychange",
+			"commitMessage": "[JBRULES-3365] reimplement KnowledgeBuilder's undo avoiding Package cloning\n",
+			"commitDate": "2012-03-13, 9:45 AM",
+			"commitName": "b2a9b0a4634921b9cd26f2496a8c92f20712c56f",
+			"commitAuthor": "mariofusco",
+			"commitDateOld": "2012-03-01, 3:03 AM",
+			"commitNameOld": "497ce7fc21b32ed38f678f47db27a720819704ab",
+			"commitAuthorOld": "mariofusco",
+			"daysBetweenCommits": 12.24,
+			"commitsBetweenForRepo": 37,
+			"commitsBetweenForFile": 1,
+			"diff": "@@ -1,3 +1,3 @@\n     public PackageBuilder getPackageBuilder() {\n-        return pkgBuilder.get();\n+        return pkgBuilder;\n     }\n\\ No newline at end of file\n",
+			"extendedDetails": {}
+		},
+		"8cc4e63660a37118920287e59c023bfba5f02842": {
+			"type": "Ybodychange",
+			"commitMessage": "[JBRULES-3365] allow to undo the last added resource on the KnowledgeBuilder\n",
+			"commitDate": "2012-02-02, 8:34 AM",
+			"commitName": "8cc4e63660a37118920287e59c023bfba5f02842",
+			"commitAuthor": "mariofusco",
+			"commitDateOld": "2012-02-01, 7:55 AM",
+			"commitNameOld": "1e0d7d29fc104d716e61059b9330e80e38bd7c1a",
+			"commitAuthorOld": "mariofusco",
+			"daysBetweenCommits": 1.03,
+			"commitsBetweenForRepo": 3,
+			"commitsBetweenForFile": 1,
+			"diff": "@@ -1,3 +1,3 @@\n     public PackageBuilder getPackageBuilder() {\n-        return this.pkgBuilder;\n+        return pkgBuilder.get();\n     }\n\\ No newline at end of file\n",
+			"extendedDetails": {}
+		},
+		"fa253763882a54d10387dc7c5417fd340549663a": {
+			"type": "Yintroduced",
+			"commitMessage": "JBRULES-1903 Pipeline support for DataLoaders and Feeders\n\ngit-svn-id: https://svn.jboss.org/repos/labs/labs/jbossrules/trunk@24484 c60d74c8-e8f6-0310-9e8f-d4a2fc68ab70\n",
+			"commitDate": "2008-12-23, 10:58 AM",
+			"commitName": "fa253763882a54d10387dc7c5417fd340549663a",
+			"commitAuthor": "Mark Proctor"
+		}
+	},
+	"sha": "8afb2d5f86231faf6044e0dd97caefc2fca9624c"
+}
