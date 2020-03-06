@@ -1,4 +1,4 @@
-package contollers;
+package com.ubcspl.codeshovel.models;
 
 import com.felixgrund.codeshovel.entities.Yparameter;
 import com.felixgrund.codeshovel.exceptions.NoParserFoundException;
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class ParseController {
+public class Parse {
     public static Collection<Object> getMethods(String repositoryPathGit,
                                                 String repositoryName,
                                                 String startCommitName,
@@ -86,13 +86,13 @@ public class ParseController {
             
             return output;
         } catch (IOException ioe) {
-            System.out.println("ParseController::getMethods(..) - Error reading from disk " + ioe.toString());
+            System.out.println("Parse::getMethods(..) - Error reading from disk " + ioe.toString());
             throw new InternalError("Was not able to read file from disk");
         } catch (NoParserFoundException e) {
-            System.out.println("ParseController::getMethods(..) - Error finding parser " + e.toString());
+            System.out.println("Parse::getMethods(..) - Error finding parser " + e.toString());
             throw new InternalError("Was not able to get required parser");
         } catch (ParseException e) {
-            System.out.println("ParseController::getMethods(..) - Error parsing supplied file " + e.toString());
+            System.out.println("Parse::getMethods(..) - Error parsing supplied file " + e.toString());
             throw new InternalError("Was not able to parse input file");
         }
     }

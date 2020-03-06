@@ -1,4 +1,4 @@
-package wrappers;
+package com.ubcspl.codeshovel.wrappers;
 
 import com.felixgrund.codeshovel.wrappers.GlobalEnv;
 

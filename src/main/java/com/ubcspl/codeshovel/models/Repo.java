@@ -1,18 +1,17 @@
-package contollers;
+package com.ubcspl.codeshovel.models;
 
 import com.felixgrund.codeshovel.services.RepositoryService;
 import com.felixgrund.codeshovel.services.impl.CachingRepositoryService;
 import com.felixgrund.codeshovel.util.Utl;
 import com.felixgrund.codeshovel.wrappers.Commit;
-import errors.NotFoundException;
-import errors.ServerBusyException;
+import com.ubcspl.codeshovel.errors.NotFoundException;
 import org.apache.commons.io.FileUtils;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.errors.JGitInternalException;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider;
-import wrappers.WebServiceEnv;
+import com.ubcspl.codeshovel.wrappers.WebServiceEnv;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,11 +23,11 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class RepoController {
+public class Repo {
     private static final String cachePathString = "./cache";
 
     public static String performClear() {
-        return RepoController.performClear(cachePathString);
+        return Repo.performClear(cachePathString);
     }
 
     private static String performClear(String pathString) {
@@ -41,11 +40,11 @@ public class RepoController {
             if(dir.mkdir()) {
                 return "Successfully cleared the cache!";
             } else {
-                throw new InternalError("RepoController::performClear() was not able to allocate a new cache directory.");
+                throw new InternalError("Repo::performClear() was not able to allocate a new cache directory.");
             }
         } catch (IOException e) {
             System.out.println(e.toString());
-            throw new InternalError("RepoController::performClear() - was not able to clear the cache.");
+            throw new InternalError("Repo::performClear() - was not able to clear the cache.");
         }
     }
 
@@ -60,7 +59,7 @@ public class RepoController {
                 .replace("https://", "/")
                 .replace(".git", "");
         File cloneDirectoryFile = Paths.get(cacheRepositoryPath).toFile();
-        cloneurl = cloneurl.replace("https://", "https://" + WebServiceEnv.GITHUB_TOKEN + "@");
+        // cloneurl = cloneurl.replace("https://", "https://" + WebServiceEnv.GITHUB_TOKEN + "@");
         boolean repoExists = cloneDirectoryFile.exists();
 
         if (noClone && repoExists) {
@@ -70,7 +69,7 @@ public class RepoController {
         }
 
         if (!noCache && repoExists) {
-            System.out.println("RepoController::cloneRepository() - Directory already existed. Beginning Fetch.");
+            System.out.println("Repo::cloneRepository() - Directory already existed. Beginning Fetch.");
             try {
                 Git git = Git.open(cloneDirectoryFile);
                 git.fetch().setRemote("origin").call();
@@ -79,7 +78,7 @@ public class RepoController {
                 try {
                     FileUtils.deleteDirectory(cloneDirectoryFile);
                 } catch (IOException ioe) {
-                    throw new InternalError("RepoController::cloneRepository() - Was not able to access files on disk");
+                    throw new InternalError("Repo::cloneRepository() - Was not able to access files on disk");
                 }
             }
         }
@@ -101,7 +100,7 @@ public class RepoController {
                 System.out.println("Cache clear successful");
             }
         }
-        throw new InternalError("RepoController::cloneRepository() - Was not able to clone after clearing cache");
+        throw new InternalError("Repo::cloneRepository() - Was not able to clone after clearing cache");
     }
 
     public static Collection<String> getFiles(String repositoryPathGit,
@@ -118,9 +117,9 @@ public class RepoController {
             }
             return files;
         } catch (IOException ioe) {
-            throw new InternalError("RepoController::getFiles() - Was not able to find commit");
+            throw new InternalError("Repo::getFiles() - Was not able to find commit");
         } catch (Exception e) {
-            throw new InternalError("RepoController::getFiles() - Was not able to find files in this commit");
+            throw new InternalError("Repo::getFiles() - Was not able to find files in this commit");
         }
     }
 }
