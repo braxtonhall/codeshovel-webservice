@@ -13,7 +13,7 @@ export class RequestController {
 
 	public static async getManifest(): Promise<IManifest> {
     //	return JSON.parse(await (await fetch(Constants.MANIFEST_PATH)).text());
-		return JSON.parse(await (await fetch(RequestController.server)).text());
+		return JSON.parse(await (await fetch(RequestController.server + '/responses.json')).text());
 	}
 
 	public static async getAuthorUrl(org: string, repo: string, sha: string): Promise<string> {
