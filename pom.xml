@@ -36,7 +36,7 @@
         <dependency>
             <groupId>com.github.ataraxie</groupId>
             <artifactId>codeshovel</artifactId>
-            <version>lang~typescript-aa178692c2-1</version>
+            <version>lang~typescript-ed905cdf0e-1</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jgit</groupId>
