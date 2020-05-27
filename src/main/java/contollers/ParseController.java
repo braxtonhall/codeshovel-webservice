@@ -167,7 +167,7 @@ public class ParseController {
             longName.append(m);
             longName.append(" ");
         }
-        if (preferFunctionKeyword(method.getName(), method.getModifiers().getModifiers())) {
+        if (preferFunctionKeyword(method)) {
             longName.append("function ");
         }
         longName.append(method.getName());
@@ -192,16 +192,13 @@ public class ParseController {
         return longName.toString();
     }
 
-    private static boolean preferFunctionKeyword(String name, List<String> ymodifiers) {
-        if (name.equals("constructor")) {
+    private static boolean preferFunctionKeyword(Yfunction function) {
+        if (function.getName().equals("constructor")) {
             return false;
         }
-        if (ymodifiers.isEmpty()) {
+        if (function.getParentName().equals("")) {
             return true;
         }
-        if (ymodifiers.contains("export")) {
-            return true;
-        }
-        return ymodifiers.size() == 1 && ymodifiers.contains("async");
+        return Character.isLowerCase(function.getParentName().charAt(0));
     }
 }
