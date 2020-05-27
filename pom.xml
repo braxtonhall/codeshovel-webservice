@@ -36,7 +36,7 @@
         <dependency>
             <groupId>com.github.ataraxie</groupId>
             <artifactId>codeshovel</artifactId>
-            <version>lang~typescript-ed905cdf0e-1</version>
+            <version>lang~typescript-d33183c89a-1</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jgit</groupId>
@@ -70,6 +70,35 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>1.8.0</version>
+                <configuration>
+                    <nodeVersion>v12.10.0</nodeVersion>
+                    <yarnVersion>v1.19.2</yarnVersion>
+                    <installDirectory>target</installDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>install node and yarn</id>
+                        <goals>
+                            <goal>install-node-and-yarn</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                    </execution>
+                    <execution>
+                        <id>install</id>
+                        <goals>
+                            <goal>yarn</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                        <configuration>
+                            <arguments>install --modules-folder ./src/main/resources/node_modules</arguments>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
