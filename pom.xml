@@ -72,22 +72,30 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
             <plugin>
-                <groupId>com.googlecode.maven-download-plugin</groupId>
-                <artifactId>download-maven-plugin</artifactId>
-                <version>1.4.0</version>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>1.8.0</version>
+                <configuration>
+                    <nodeVersion>v12.10.0</nodeVersion>
+                    <yarnVersion>v1.19.2</yarnVersion>
+                    <installDirectory>target</installDirectory>
+                </configuration>
                 <executions>
                     <execution>
-                        <id>typescript</id>
-                        <phase>generate-sources</phase>
+                        <id>install node and yarn</id>
                         <goals>
-                            <goal>wget</goal>
+                            <goal>install-node-and-yarn</goal>
                         </goals>
+                        <phase>generate-resources</phase>
+                    </execution>
+                    <execution>
+                        <id>install</id>
+                        <goals>
+                            <goal>yarn</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
                         <configuration>
-                            <url>
-                                https://raw.githubusercontent.com/microsoft/TypeScript/v3.9.3/lib/typescript.js
-                            </url>
-                            <outputFileName>typescript.js</outputFileName>
-                            <outputDirectory>src/main/resources/node_modules/typescript/lib/</outputDirectory>
+                            <arguments>install --modules-folder ./src/main/resources/node_modules</arguments>
                         </configuration>
                     </execution>
                 </executions>
