@@ -1,4 +1,4 @@
-// import {Constants} from "./Constants";
+import {Constants} from "./Constants";
 import {
 	EmptyError,
 	IHistoryTransport,
@@ -9,11 +9,11 @@ import {
 } from "./Types";
 
 export class RequestController {
-	private static readonly server: string = new URL(window.location.href).origin; // Constants.SERVER_ADDRESS;
+	private static readonly server: string = Constants.SERVER_ADDRESS; // new URL(window.location.href).origin;
 
 	public static async getManifest(): Promise<IManifest> {
-    //	return JSON.parse(await (await fetch(Constants.MANIFEST_PATH)).text());
-		return JSON.parse(await (await fetch(RequestController.server)).text());
+		return JSON.parse(await (await fetch(Constants.MANIFEST_PATH)).text());
+		// return JSON.parse(await (await fetch(RequestController.server)).text());
 	}
 
 	public static async getAuthorUrl(org: string, repo: string, sha: string): Promise<string> {
