@@ -1,9 +1,11 @@
 FROM node:10-alpine AS App
 
+ARG SERVER_ADDRESS
+ARG PUBLIC_ADDRESS
+
 WORKDIR /tmp
 COPY app/ ./
-RUN yarn install && \
-    yarn build
+RUN yarn install && REACT_APP_SERVER_ADDRESS=${SERVER_ADDRESS} PUBLIC_URL=${PUBLIC_ADDRESS} yarn build
 
 FROM maven:3.5.2-jdk-8-alpine AS MAVEN_TOOL_CHAIN
 WORKDIR /tmp
