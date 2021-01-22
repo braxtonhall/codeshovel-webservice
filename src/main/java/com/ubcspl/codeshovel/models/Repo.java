@@ -49,6 +49,10 @@ public class Repo {
     }
 
     public static String cloneRepository(String cloneurl, boolean noCache, boolean noFetch) {
+        System.out.println("Repo: " + cloneurl);
+        System.out.println("No Cache?: " + noCache);
+        System.out.println("No Fetch?: " + noFetch);
+
         Matcher matcher = Pattern.compile("[A-Z0-9a-z]+\\.git$").matcher(cloneurl);
 
         if (!matcher.find()) {
@@ -63,6 +67,7 @@ public class Repo {
         boolean repoExists = cloneDirectoryFile.exists();
 
         if (noFetch && repoExists) {
+            System.out.println("Repo::cloneRepository() - No fetch required and repo exists");
             return cacheRepositoryPath;
         }
 //        else if (noFetch) {
@@ -77,6 +82,7 @@ public class Repo {
                 return cacheRepositoryPath;
             } catch (Exception e) {
                 try {
+                    System.out.println("Repo::cloneRepository() - Fetch failed. Deleting repo on disk.");
                     FileUtils.deleteDirectory(cloneDirectoryFile);
                 } catch (IOException ioe) {
                     throw new InternalError("Repo::cloneRepository() - Was not able to access files on disk");
@@ -85,6 +91,7 @@ public class Repo {
         }
 
         for (int i = 0; i < 2; i++) {
+            System.out.println("Repo::cloneRepository() - Cloning repo. Attempt " + (i + 1));
             try {
                 Git.cloneRepository()
                         .setURI(cloneurl)
@@ -93,10 +100,13 @@ public class Repo {
                         .call();
                 return cacheRepositoryPath;
             } catch (GitAPIException e) {
+                System.out.println("Repo::cloneRepository() - Clone failed, GitAPI. Error:");
                 System.out.println(e.toString());
                 throw new InternalError("Was not able to clone " + cloneurl + "; Reason: " + e.toString());
             } catch (JGitInternalException e) {
+                System.out.println("Repo::cloneRepository() - Clone failed, JGit. Error:");
                 System.out.println(e.toString());
+                System.out.println("Repo::cloneRepository() - Wiping all repos.");
                 performClear(cloneDirectoryFile.getPath());
                 System.out.println("Cache clear successful");
             }
