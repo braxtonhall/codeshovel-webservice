@@ -18,14 +18,14 @@ public class CodeShovel {
                              String startLine,
                              String startCommitName,
                              String noCache,
-                             String noClone) {
+                             String noFetch) {
 
         int intStartLine = Integer.parseInt(startLine);
         boolean boolNoCache = Boolean.parseBoolean(noCache);
-        boolean boolNoClone = Boolean.parseBoolean(noClone);
-        nand(boolNoCache, boolNoClone);
+        boolean boolNoFetch = Boolean.parseBoolean(noFetch);
+        nand(boolNoCache, boolNoFetch);
 
-        String cacheRepositoryPath = Repo.cloneRepository(cloneUrl, boolNoCache, boolNoClone);
+        String cacheRepositoryPath = Repo.cloneRepository(cloneUrl, boolNoCache, boolNoFetch);
 
         String pathToGitFolder = cacheRepositoryPath + "/.git";
         String outFilePath = cacheRepositoryPath + "/cdshvl/fake.json";

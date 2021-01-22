@@ -48,7 +48,7 @@ public class Repo {
         }
     }
 
-    public static String cloneRepository(String cloneurl, boolean noCache, boolean noClone) {
+    public static String cloneRepository(String cloneurl, boolean noCache, boolean noFetch) {
         Matcher matcher = Pattern.compile("[A-Z0-9a-z]+\\.git$").matcher(cloneurl);
 
         if (!matcher.find()) {
@@ -62,13 +62,14 @@ public class Repo {
         // cloneurl = cloneurl.replace("https://", "https://" + WebServiceEnv.GITHUB_TOKEN + "@");
         boolean repoExists = cloneDirectoryFile.exists();
 
-        if (noClone && repoExists) {
+        if (noFetch && repoExists) {
             return cacheRepositoryPath;
-        } else if (noClone) {
-            throw new NotFoundException("Repo is not already in cache");
         }
+//        else if (noFetch) {
+//            throw new NotFoundException("Repo is not already in cache");
+//        }
 
-        if (!noCache && repoExists) {
+        if (!noCache && !noFetch && repoExists) {
             System.out.println("Repo::cloneRepository() - Directory already existed. Beginning Fetch.");
             try {
                 Git git = Git.open(cloneDirectoryFile);

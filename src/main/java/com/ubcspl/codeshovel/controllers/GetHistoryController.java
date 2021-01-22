@@ -14,8 +14,8 @@ public class GetHistoryController {
             @RequestParam(value="startLine") String startLine,
             @RequestParam(value="sha", defaultValue="HEAD") String startCommit,
             @RequestParam(value="noCache", defaultValue="false") String noCache,
-            @RequestParam(value="noClone", defaultValue="false") String noClone
+            @RequestParam(value= "noFetch", defaultValue="false") String noFetch
     ) {
-        return CodeShovel.getHistory(gitUrl, filePath, methodName, startLine, startCommit, noCache, noClone);
+        return CodeShovel.getHistory(gitUrl, filePath, methodName, startLine, startCommit, noCache, noFetch);
     }
 }
