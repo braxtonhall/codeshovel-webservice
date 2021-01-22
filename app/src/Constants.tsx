@@ -97,7 +97,7 @@ export class Constants {
 
 	public static readonly INVALID_URL_ERROR_TEXT: string = "Please enter a link to proceed.";
 
-	public static readonly LANDING_TUTORIAL_TEXT: string = "Welcome. For a live demonstration of the codeshovel web service, you can select example by clicking a method on the left, or enter a link below and follow the steps on the next few pages to try it on your favourite public Java repo.";
+	public static readonly LANDING_TUTORIAL_TEXT: string = "Welcome. For a live demonstration of the codeshovel web service, you can select an example by clicking a method on the left, or enter a link below and follow the steps on the next few pages to try it on your favourite public Java repo.";
 
 	public static readonly SERVER_BUSY_ERROR_TEXT: string = "The com.codeshovel.rest.server is under heavy load. Please try again in a few minutes!";
 	public static readonly INTERNAL_ERROR_TEXT: string = "The com.codeshovel.rest.server is having trouble processing this specific request. Please try another.";
