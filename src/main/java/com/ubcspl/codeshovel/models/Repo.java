@@ -59,7 +59,7 @@ public class Repo {
             throw new IllegalArgumentException("cloneurl does not appear to be a git URL. Should end in \".git\"");
         }
 
-        String cacheRepositoryPath = cachePathString + cloneurl
+        String cacheRepositoryPath = cachePathString + removeToken(cloneurl)
                 .replace("https://", "/")
                 .replace(".git", "");
         File cloneDirectoryFile = Paths.get(cacheRepositoryPath).toFile();
@@ -70,9 +70,6 @@ public class Repo {
             System.out.println("Repo::cloneRepository() - No fetch required and repo exists");
             return cacheRepositoryPath;
         }
-//        else if (noFetch) {
-//            throw new NotFoundException("Repo is not already in cache");
-//        }
 
         if (!noCache && !noFetch && repoExists) {
             System.out.println("Repo::cloneRepository() - Directory already existed. Beginning Fetch.");
@@ -96,7 +93,7 @@ public class Repo {
                 Git.cloneRepository()
                         .setURI(cloneurl)
                         .setDirectory(cloneDirectoryFile)
-                        .setCredentialsProvider(new UsernamePasswordCredentialsProvider("token", ""))
+                        .setCredentialsProvider(new UsernamePasswordCredentialsProvider(getToken(cloneurl), ""))
                         .call();
                 return cacheRepositoryPath;
             } catch (GitAPIException e) {
@@ -112,6 +109,23 @@ public class Repo {
             }
         }
         throw new InternalError("Repo::cloneRepository() - Was not able to clone after clearing cache");
+    }
+
+    private static String getToken(String cloneUrl) {
+        String token = WebServiceEnv.GITHUB_TOKEN;
+        Matcher matcher = Pattern.compile("^https://(.*)@").matcher(cloneUrl);
+        if (matcher.find()) {
+            token = matcher.group(1);
+        }
+        return token;
+    }
+
+    private static String removeToken(String cloneUrl) {
+        Matcher matcher = Pattern.compile("^https://(.*)@").matcher(cloneUrl);
+        if (matcher.find()) {
+            return cloneUrl.replaceAll("^https://(.*)@", "https://");
+        }
+        return cloneUrl;
     }
 
     public static Collection<String> getFiles(String repositoryPathGit,
