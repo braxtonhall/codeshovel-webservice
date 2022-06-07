@@ -7,6 +7,7 @@ import com.felixgrund.codeshovel.parser.Yfunction;
 import com.felixgrund.codeshovel.parser.Yparser;
 import com.felixgrund.codeshovel.parser.impl.JavaParser;
 import com.felixgrund.codeshovel.parser.impl.PythonParser;
+import com.felixgrund.codeshovel.parser.impl.TypeScriptParser;
 import com.felixgrund.codeshovel.services.RepositoryService;
 import com.felixgrund.codeshovel.services.impl.CachingRepositoryService;
 import com.felixgrund.codeshovel.util.ParserFactory;
@@ -83,7 +84,7 @@ public class Parse {
                 }
                 output.add(new MethodTransport(longName, startLine, methodName, isStatic, isAbstract, visibility));
             }
-            
+
             return output;
         } catch (IOException ioe) {
             System.out.println("Parse::getMethods(..) - Error reading from disk " + ioe.toString());
@@ -96,17 +97,19 @@ public class Parse {
             throw new InternalError("Was not able to parse input file");
         }
     }
-    
+
     private static String buildLongName(Yfunction method, String filepath) {
         if (filepath.matches(PythonParser.ACCEPTED_FILE_EXTENSION)) {
             return buildPythonLongName(method);
         } else if (filepath.matches(JavaParser.ACCEPTED_FILE_EXTENSION)) {
             return buildJavaLongName(method);
+        } else if (filepath.matches(TypeScriptParser.ACCEPTED_FILE_EXTENSION)) {
+            return buildTypeScriptLongName(method);
         } else {
             throw new IllegalArgumentException("Unsupported extension provided");
         }
     }
-    
+
     private static String buildJavaLongName(Yfunction method) {
         StringBuilder longName = new StringBuilder();
         for (String m : method.getModifiers().getModifiers()) {
@@ -155,5 +158,47 @@ public class Parse {
             longName.append(method.getReturnStmt().getType());
         }
         return longName.toString();
+    }
+
+    private static String buildTypeScriptLongName(Yfunction method) {
+        StringBuilder longName = new StringBuilder();
+        // TODO I have no idea if it's a function or a method.
+        for (String m : method.getModifiers().getModifiers()) {
+            longName.append(m);
+            longName.append(" ");
+        }
+        if (preferFunctionKeyword(method)) {
+            longName.append("function ");
+        }
+        longName.append(method.getName());
+        longName.append("(");
+        if (method.getParameters().size() != 0) {
+            for (Yparameter p : method.getParameters()) {
+                longName.append(p.getName());
+                if (!p.getType().equals("")) {
+                    longName.append(": ");
+                    longName.append(p.getType());
+                }
+                longName.append(", ");
+            }
+            longName.delete(longName.length() - 2, longName.length());
+        }
+        longName.append(")");
+        if (!method.getReturnStmt().getType().equals("")) {
+            longName.append(": ");
+            longName.append(method.getReturnStmt().getType());
+        }
+        longName.append(";");
+        return longName.toString();
+    }
+
+    private static boolean preferFunctionKeyword(Yfunction function) {
+        if (function.getName().equals("constructor")) {
+            return false;
+        }
+        if (function.getParentName().equals("")) {
+            return true;
+        }
+        return Character.isLowerCase(function.getParentName().charAt(0));
     }
 }
